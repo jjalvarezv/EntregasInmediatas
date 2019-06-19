@@ -20,6 +20,9 @@ public class Domiciliario extends UsuarioRegistrado{
 		
 	}
 	
+	public void metodoPrueba() {
+		
+	}
 	public void logout(){
 		
 	}
