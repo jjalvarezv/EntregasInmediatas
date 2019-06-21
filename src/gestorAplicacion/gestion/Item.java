@@ -7,14 +7,14 @@ public class Item {
 	public Item() {
 		
 	}
-	public Item(int costo, int cantidad, Producto prod, int total) {
-		this.costo= costo;
+	public Item( int cantidad, Producto prod, int total) {
+		
 		this.cantidad= cantidad;
 		this.producto= prod;
 		this.total= total;
 	}
 	public void  calcularTotal() {
-		
+		costo= cantidad* producto.getValorUnidad(); // el costo es la cantidad de productos, por el precio de cada uno
 	}
 	public int getCosto() {
 		return this.costo;

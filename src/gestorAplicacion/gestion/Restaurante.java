@@ -16,11 +16,11 @@ public class Restaurante {
 		this.propietario= prop;
 		this.telefono= tel;
 	}
-	public void agregarProducto() {
-		
+	public void agregarProducto(Producto producto) {
+		Carta.add(producto);
 	}
-	public void eliminarProducto() {
-		
+	public void eliminarProducto(Producto producto) {
+		Carta.remove(producto);
 	}
 	public void calcularGanancias() {
 		
