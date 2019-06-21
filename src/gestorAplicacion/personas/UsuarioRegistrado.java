@@ -1,10 +1,10 @@
 package gestorAplicacion.personas;
 
 public abstract class UsuarioRegistrado {
-	public String userName;
-	public String pass;
-	public String nombre;
-	public Long cedula;
+	private String userName;
+	private String pass;
+	private String nombre;
+	private Long cedula;
 	//public String rol;-----DUDA----
 	
 	public UsuarioRegistrado() {}

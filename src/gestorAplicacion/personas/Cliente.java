@@ -2,8 +2,8 @@ package gestorAplicacion.personas;
 import java.util.*;
 
 public class Cliente extends UsuarioRegistrado{
-	public ArrayList<gestorAplicacion.gestion.Pedido> pedido;
-	public String direccion;
+	private ArrayList<gestorAplicacion.gestion.Pedido> pedido;
+	private String direccion;
 	
 	public Cliente() {}
 	public Cliente(String userName, String pass, String nombre, Long cc, 

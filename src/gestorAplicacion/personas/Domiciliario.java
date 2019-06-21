@@ -1,8 +1,8 @@
 package gestorAplicacion.personas;
 
 public class Domiciliario extends UsuarioRegistrado{
-	public gestorAplicacion.gestion.Pedido pedido;
-	public String estado;
+	private gestorAplicacion.gestion.Pedido pedido;
+	private String estado;
 	
 	public Domiciliario() {}
 	public Domiciliario(String userName, String pass, String nombre, Long cc,
@@ -20,9 +20,6 @@ public class Domiciliario extends UsuarioRegistrado{
 		
 	}
 	
-	public void metodoPrueba() {
-		
-	}
 	public void logout(){
 		
 	}
