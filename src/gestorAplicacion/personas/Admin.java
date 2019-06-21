@@ -20,6 +20,15 @@ public class Admin extends UsuarioRegistrado{
 	public void aggDomiciliario() {
 		
 	}
+	public void aggCliente() {
+		
+	}
+	public void aggPropietario() {
+		
+	}
+	public void calcularGanancias() {
+		
+	}
 	
 	public ArrayList<Admin> getAdmin() {
 		return listaAdmin;
