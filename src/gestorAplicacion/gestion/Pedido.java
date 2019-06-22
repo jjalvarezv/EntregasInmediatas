@@ -9,14 +9,18 @@ public class Pedido {
 	private Domiciliario domicilio;
 	private int IdPedido, direccion, tiempo_entrega;
 	
-	public Pedido(Cliente clt, int IdPed, int direcc, int tiempo) {
+	public Pedido(Cliente clt, int IdPed, int direcc, int tiempo, ArrayList<Item> producto ) {
 		this.cliente= clt;
 		this.IdPedido= IdPed;
 		this.direccion= direcc;
 		this.tiempo_entrega=tiempo;
+		this.producto= producto;
 	}
-	public void modificarPedido() {
-		
+	public void modificarPedido(ArrayList<Item> nuevoProducto) {
+		this.producto= nuevoProducto;
+	}
+	public void modificarPedido(int nuevoTiempo) {
+		this.tiempo_entrega= nuevoTiempo;
 	}
 	
 	public void cancelarPedido() {

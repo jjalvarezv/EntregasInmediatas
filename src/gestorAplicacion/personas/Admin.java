@@ -37,4 +37,5 @@ public class Admin extends UsuarioRegistrado{
 	public void logout() {
 		
 	}
+	
 }
