@@ -1,4 +1,6 @@
 package gestorAplicacion.personas;
+import uiMain.Main;
+import Datos.Data;
 
 public abstract class UsuarioRegistrado {
 	private String userName;
@@ -13,10 +15,29 @@ public abstract class UsuarioRegistrado {
 		this.pass = pass;
 		this.nombre = nombre;
 		this.cedula = cc;
+		Data.Usuarios.put(userName, this);
+		
+	}
+	public String getPass() {
+		return this.pass;
 	}
 	
 	public abstract void logout();
 	
-	
+	public static String login(String username, String pass) {
+		UsuarioRegistrado us = Data.Usuarios.get(username);
+		if (us != null) {
+			if(us.getPass().equals(pass)) {
+				Main.usuario = us;
+				return "Bienvenido" + username;
+			}
+			else {
+				return "Contraseña invalida";
+			}
+		}
+		else {
+			return "Usuario no encontrado";
+		}
+	}
 	
 }
