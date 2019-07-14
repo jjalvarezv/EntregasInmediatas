@@ -24,4 +24,7 @@ public class Domiciliario extends UsuarioRegistrado{
 		
 	}
 	
+	public void ToString() {
+		System.out.println("esto es una prueba");
+	}
 }

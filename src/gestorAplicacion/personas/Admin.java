@@ -13,12 +13,12 @@ public class Admin extends UsuarioRegistrado{
 	}
 	
 	public void aggAdmin(String userName, String pass, String nombre, Long cc) {
-		Admin a1 = new Admin(userName, pass, nombre, cc);
-		listaAdmin.add(a1);
+		Admin admin1 = new Admin(userName, pass, nombre, cc);
+		listaAdmin.add(admin1);
 	}
 	
-	public void aggDomiciliario() {
-		
+	public void aggDomiciliario(gestorAplicacion.gestion.Pedido pedido, String estado) {
+		Domiciliario domi1 = new Domiciliario();
 	}
 	public void aggCliente() {
 		
