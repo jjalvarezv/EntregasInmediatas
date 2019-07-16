@@ -1,11 +1,11 @@
 package uiMain;
 import java.util.ArrayList;
-
 import Datos.Data;
 import gestorAplicacion.personas.UsuarioRegistrado;
 
 //import uiMain.operations.AddOpt;
 import uiMain.operaciones.Login;
+import uiMain.operaciones.VerOpt;
 //import uiMain.operations.NewAdmin;
 //import uiMain.operations.RemoveOpt;
 //import uiMain.operaciones.VerOpt;

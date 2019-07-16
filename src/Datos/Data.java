@@ -1,8 +1,8 @@
 package Datos;
 import java.io.*;
 import java.util.HashMap;
+import gestorAplicacion.gestion.Restaurante;
 import gestorAplicacion.personas.*;
-import uiMain.MenuConsola;
 import uiMain.MenuConsola;
 import uiMain.OpcionesMenu;
 
@@ -10,6 +10,7 @@ public class Data {
 	public static HashMap<String, OpcionesMenu> operaciones = new HashMap<String, OpcionesMenu>();
 	public static HashMap<String, MenuConsola> menus = new HashMap<String, MenuConsola>();
 	public static HashMap<String, UsuarioRegistrado> usuarios = new HashMap<String, UsuarioRegistrado>();
+	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
 	
 	public static void cargarAdmin(String ruta) throws IOException {
 		
