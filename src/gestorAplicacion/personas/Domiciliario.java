@@ -1,8 +1,8 @@
 package gestorAplicacion.personas;
 
 public class Domiciliario extends UsuarioRegistrado{
-	public gestorAplicacion.gestion.Pedido pedido;
-	public String estado;
+	private gestorAplicacion.gestion.Pedido pedido;
+	private String estado;
 	
 	public Domiciliario() {}
 	public Domiciliario(String userName, String pass, String nombre, Long cc,
@@ -11,20 +11,23 @@ public class Domiciliario extends UsuarioRegistrado{
 		this.pedido = pedido;
 		this.estado = estado;
 	}
+	public Domiciliario(String userName, String pass, String nombre, Long cc) {
+		super(userName, pass, nombre, cc);
+	}
 	
-	public void asignarPedido() {
-		
+	public void asignarPedido(gestorAplicacion.gestion.Pedido pedido) {
+		this.pedido= pedido;
 	}
 	
 	public void cambiarEstado() {
 		
 	}
 	
-	public void metodoPrueba() {
-		
-	}
 	public void logout(){
 		
 	}
 	
+	public void ToString() {
+		System.out.println("esto es una prueba");
+	}
 }

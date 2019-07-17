@@ -1,7 +1,7 @@
 package gestorAplicacion.personas;
 
 public class PropietarioRestaurante extends UsuarioRegistrado{
-	public gestorAplicacion.gestion.Restaurante restaurante;
+	private gestorAplicacion.gestion.Restaurante restaurante;
 	
 	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc, gestorAplicacion.gestion.Restaurante rest) {
 		super(userName, pass, nombre, cc);

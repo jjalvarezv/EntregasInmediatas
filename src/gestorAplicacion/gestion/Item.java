@@ -13,6 +13,9 @@ public class Item {
 		this.producto= prod;
 		this.total= total;
 	}
+	public int  getTiempo() {
+		return producto.getTiempoDePreparacion();
+	}
 	public void  calcularTotal() {
 		costo= cantidad* producto.getValorUnidad(); // el costo es la cantidad de productos, por el precio de cada uno
 	}
