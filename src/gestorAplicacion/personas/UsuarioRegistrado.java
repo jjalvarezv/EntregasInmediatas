@@ -23,12 +23,10 @@ public abstract class UsuarioRegistrado {
 	public String getPass() {
 		return this.pass;
 	}
-<<<<<<< HEAD
+
 	public long getCedula() {
 		return this.cedula;
 	}
-=======
->>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
 	
 	public MenuConsola getMenu() {
 		return menu;
@@ -51,7 +49,7 @@ public abstract class UsuarioRegistrado {
 			return "Usuario no encontrado";
 		}
 	}
-<<<<<<< HEAD
+
 	
 	public static UsuarioRegistrado getUserByUsername(String username){
 		return Data.usuarios.get(username);
@@ -60,18 +58,7 @@ public abstract class UsuarioRegistrado {
 	public void setMenu(MenuConsola menu) {
 		this.menu = menu;
 	}
-	
-=======
-	
-	public static UsuarioRegistrado getUserByUsername(String username){
-		return Data.usuarios.get(username);
-    }
-	
-	public void setMenu(MenuConsola menu) {
-		this.menu = menu;
-	}
-	
->>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
+
 	public String getUsername() {
 		return userName;
 	}

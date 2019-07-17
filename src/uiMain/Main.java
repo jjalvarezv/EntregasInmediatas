@@ -1,18 +1,12 @@
 package uiMain;
 import java.util.ArrayList;
-<<<<<<< HEAD
-
-=======
->>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
 import Datos.Data;
 import gestorAplicacion.personas.UsuarioRegistrado;
 
 //import uiMain.operations.AddOpt;
 import uiMain.operaciones.Login;
-<<<<<<< HEAD
-=======
+
 import uiMain.operaciones.VerOpt;
->>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
 //import uiMain.operations.NewAdmin;
 //import uiMain.operations.RemoveOpt;
 //import uiMain.operaciones.VerOpt;
