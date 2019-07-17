@@ -16,6 +16,7 @@ public class VerOpt extends OpcionesMenu{
 		UsuarioRegistrado user = UsuarioRegistrado.getUserByUsername(username);
 		user.getMenu().seeOpt();
 		leer.close();
+
 	}
 
 	public String toString() {
