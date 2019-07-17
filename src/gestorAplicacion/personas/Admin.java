@@ -2,9 +2,12 @@ package gestorAplicacion.personas;
 
 import java.util.*;
 
-public class Admin extends UsuarioRegistrado{
+import gestorAplicacion.gestion.Item;
+
+public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 	
 	private ArrayList<Admin> listaAdmin;
+	
 	
 	public Admin() {}
 	public Admin(String userName, String pass, String nombre, Long cc) {
@@ -26,8 +29,9 @@ public class Admin extends UsuarioRegistrado{
 	public void aggPropietario() {
 		
 	}
-	public void calcularGanancias() {
-		
+	@Override
+	public int calcular_Ganancias() {
+		return (int) (Item.it.getTotal() * 0.45);
 	}
 	
 	public ArrayList<Admin> getAdmin() {

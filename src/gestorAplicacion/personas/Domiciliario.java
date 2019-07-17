@@ -1,6 +1,7 @@
 package gestorAplicacion.personas;
+import gestorAplicacion.gestion.Item;
 
-public class Domiciliario extends UsuarioRegistrado{
+public class Domiciliario extends UsuarioRegistrado implements CalcularGanancias{
 	private gestorAplicacion.gestion.Pedido pedido;
 	private String estado;
 	
@@ -11,11 +12,19 @@ public class Domiciliario extends UsuarioRegistrado{
 		this.pedido = pedido;
 		this.estado = estado;
 	}
-	
-	public void asignarPedido() {
-		
+	public Domiciliario(String userName, String pass, String nombre, Long cc) {
+		super(userName, pass, nombre, cc);
 	}
 	
+	public void asignarPedido(gestorAplicacion.gestion.Pedido pedido) {
+		this.pedido= pedido;
+	}
+	
+	@Override
+	public int calcular_Ganancias() {
+		return (int) (Item.it.getTotal() * 0.45);
+	}
+
 	public void cambiarEstado() {
 		
 	}

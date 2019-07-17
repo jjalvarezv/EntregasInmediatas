@@ -4,6 +4,9 @@ public class Item {
 	private int costo, cantidad, total;	
 	private Producto producto;
 	
+	
+	public static Item it= new Item();///prueba
+	
 	public Item() {
 		
 	}
@@ -12,6 +15,9 @@ public class Item {
 		this.cantidad= cantidad;
 		this.producto= prod;
 		this.total= total;
+	}
+	public int  getTiempo() {
+		return producto.getTiempoDePreparacion();
 	}
 	public void  calcularTotal() {
 		costo= cantidad* producto.getValorUnidad(); // el costo es la cantidad de productos, por el precio de cada uno

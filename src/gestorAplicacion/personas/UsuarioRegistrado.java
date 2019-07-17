@@ -23,6 +23,10 @@ public abstract class UsuarioRegistrado {
 	public String getPass() {
 		return this.pass;
 	}
+
+	public long getCedula() {
+		return this.cedula;
+	}
 	
 	public MenuConsola getMenu() {
 		return menu;
@@ -45,6 +49,7 @@ public abstract class UsuarioRegistrado {
 			return "Usuario no encontrado";
 		}
 	}
+
 	
 	public static UsuarioRegistrado getUserByUsername(String username){
 		return Data.usuarios.get(username);
@@ -53,7 +58,7 @@ public abstract class UsuarioRegistrado {
 	public void setMenu(MenuConsola menu) {
 		this.menu = menu;
 	}
-	
+
 	public String getUsername() {
 		return userName;
 	}
