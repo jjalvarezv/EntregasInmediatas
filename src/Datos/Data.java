@@ -15,6 +15,10 @@ public class Data {
 	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
 
 	
+	// hashmap de los domiciliarios que hay
+	public static HashMap<String, Domiciliario> domiciliarios = new HashMap<String, Domiciliario>();
+	
+	
 	public static void cargarAdmin(String ruta) throws IOException {
 		
 		File archivo = new File(ruta);

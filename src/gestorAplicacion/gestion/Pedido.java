@@ -6,7 +6,7 @@ public class Pedido {
 
 	private ArrayList<Item> producto;
 	private Cliente cliente;
-	private Domiciliario domicilio;
+	private Domiciliario domiciliario;
 	private int  direccion, tiempo_entrega;	
 	private long IdPedido;
 	private int estado;
@@ -63,8 +63,12 @@ public class Pedido {
 		return this.cliente;
 	}
 	
-	public Domiciliario getDomicilio() {
-		return this.domicilio;
+	public Domiciliario getDomiciliario() {
+		return this.domiciliario;
+	}
+	
+	public void setDomiciliario(Domiciliario domiciliario) {
+		this.domiciliario = domiciliario;
 	}
 	
 	 public long  getIdPedido() {

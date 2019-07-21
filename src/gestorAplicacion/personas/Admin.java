@@ -2,6 +2,7 @@ package gestorAplicacion.personas;
 
 import java.util.*;
 
+import Datos.Data;
 import gestorAplicacion.gestion.Item;
 
 public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
@@ -20,8 +21,8 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 		listaAdmin.add(admin1);
 	}
 	
-	public void aggDomiciliario(gestorAplicacion.gestion.Pedido pedido, String estado) {
-		Domiciliario domi1 = new Domiciliario();
+	public void aggDomiciliario(Domiciliario domi1) {
+		Data.domiciliarios.put(domi1.getUsername(), domi1);
 	}
 	public void aggCliente() {
 		
