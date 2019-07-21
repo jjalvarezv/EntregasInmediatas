@@ -4,6 +4,9 @@ import java.util.*;
 
 import Datos.Data;
 import gestorAplicacion.gestion.Item;
+import gestorAplicacion.personas.Admin;
+import uiMain.MenuConsola;
+import uiMain.MenuConsola;
 
 public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 	
@@ -16,10 +19,6 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 		listaAdmin.add(this);
 	}
 	
-	public void aggAdmin(String userName, String pass, String nombre, Long cc) {
-		Admin admin1 = new Admin(userName, pass, nombre, cc);
-		listaAdmin.add(admin1);
-	}
 	
 	public void aggDomiciliario(Domiciliario domi1) {
 		Data.domiciliarios.put(domi1.getUsername(), domi1);
@@ -41,6 +40,25 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 	
 	public void logout() {
 		
+	}
+	
+	public static String newAdmin(String username, String password, String name, Long cc){
+		Admin user = new Admin();
+		//Validaciones de cada parametro
+		user.setNom(name);
+		user.setUsername(username);
+		user.setCedula(cc);
+		user.setPassword(password);
+		
+		//Menu por defecto al crear un nuevo usuario administrador
+		String [] operations = {"1","2","3","4","5"};
+		MenuConsola.newMenu(user, operations);
+		if(true){
+			Data.usuarios.put(username,user);
+			return "Se creo el administrador";
+		}else{
+			return "No se pudo crear el administrador...";
+		}
 	}
 	
 }

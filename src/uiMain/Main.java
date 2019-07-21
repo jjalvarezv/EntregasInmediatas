@@ -3,14 +3,12 @@ import java.util.ArrayList;
 import Datos.Data;
 import gestorAplicacion.personas.UsuarioRegistrado;
 
-//import uiMain.operations.AddOpt;
+import uiMain.operaciones.AddOpt;
 import uiMain.operaciones.Login;
-
 import uiMain.operaciones.VerOpt;
-//import uiMain.operations.NewAdmin;
-//import uiMain.operations.RemoveOpt;
-//import uiMain.operaciones.VerOpt;
-//import uiMain.operations.SignOut;
+import uiMain.operaciones.NewAdmin;
+import uiMain.operaciones.DelOpt;
+import uiMain.operaciones.SignOut;
 //import uiMain.operations.SignUp;
 
 public class Main {
@@ -46,9 +44,9 @@ public class Main {
 		
 		//Operaciones administrativas
 		Data.operaciones.put("1", new VerOpt("1"));
-		//Data.operaciones.put("2", new AddOpt("2"));
-		//Data.operaciones.put("3", new DelOpt("3"));
-		//Data.operaciones.put("4", new NewAdmin("4"));
+		Data.operaciones.put("2", new AddOpt("2"));
+		Data.operaciones.put("3", new DelOpt("3"));
+		Data.operaciones.put("4", new NewAdmin("4"));
 		
 		//Operaciones de mis usuarios
 		//Data.operaciones.put("5", new SignOut("5"));

@@ -1,6 +1,7 @@
 package gestorAplicacion.personas;
 import uiMain.Main;
 import uiMain.MenuConsola;
+import uiMain.MenuDeConsola;
 import Datos.Data;
 
 public abstract class UsuarioRegistrado {
@@ -20,24 +21,13 @@ public abstract class UsuarioRegistrado {
 		Data.usuarios.put(userName, this);
 		
 	}
-	public String getPass() {
-		return this.pass;
-	}
-
-	public long getCedula() {
-		return this.cedula;
-	}
-	
-	public MenuConsola getMenu() {
-		return menu;
-	}
 	
 	public abstract void logout();
 	
 	public static String login(String username, String pass) {
 		UsuarioRegistrado us = Data.usuarios.get(username);
 		if (us != null) {
-			if(us.getPass().equals(pass)) {
+			if(us.getPassword().equals(pass)) {
 				Main.user = us;
 				return "Bienvenido" + username;
 			}
@@ -55,12 +45,44 @@ public abstract class UsuarioRegistrado {
 		return Data.usuarios.get(username);
     }
 	
-	public void setMenu(MenuConsola menu) {
-		this.menu = menu;
+	public String getNom() {
+		return nombre;
+	}
+
+	public void setNom(String name) {
+		this.nombre = name;
 	}
 
 	public String getUsername() {
 		return userName;
+	}
+
+	public void setUsername(String username) {
+		this.userName = username;
+	}
+
+	public String getPassword() {
+		return pass;
+	}
+
+	public void setPassword(String password) {
+		this.pass = password;
+	}
+	
+	public MenuConsola getMenu() {
+		return menu;
+	}
+
+	public void setMenu(MenuConsola menu) {
+		this.menu = menu;
+	}
+	
+	public void setCedula(Long cc) {
+		this.cedula = cc;
+	}
+	
+	public long getCedula() {
+		return cedula;
 	}
 	
 }
