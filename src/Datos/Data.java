@@ -42,6 +42,41 @@ public class Data {
 			System.err.println("No se encontró el archivo");
 		}
 			
+		
+		
+	}
+	
+	public static void saveData() {
+		createFilesAndDirs();
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		saveUsers(ruta);
+		saveMenus(ruta);
+	}
+	
+	public static void loadData() {
+		createFilesAndDirs();
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		loadUsers(ruta);
+		loadAdminUsers(ruta);
+		loadMenus(ruta);
+	}
+	
+	private static void createFilesAndDirs() {
+		try {
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		File directory = new File(ruta);
+	    if (! directory.exists()){
+	        directory.mkdir();
+	    }
+		File usuariosRegistradosFile = new File(ruta+"users.txt");
+		File usuariosAdminFile = new File(ruta+"adminUsers.txt");
+		File usuariosMenus = new File(ruta+"usersMenus.txt");
+		usuariosRegistradosFile.createNewFile();
+		usuariosAdminFile.createNewFile();
+		}
+		catch(IOException e){
+			//Ocurrio algo al crear las carpetas y los archivos
+		}
 	}
 }
 

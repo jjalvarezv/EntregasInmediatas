@@ -9,11 +9,11 @@ import uiMain.operaciones.VerOpt;
 import uiMain.operaciones.NewAdmin;
 import uiMain.operaciones.DelOpt;
 import uiMain.operaciones.SignOut;
-//import uiMain.operations.SignUp;
+import uiMain.operaciones.SignUp;
 
 public class Main {
 	public static UsuarioRegistrado user;
-	public static OpcionesMenu menuGuestUser;
+	public static MenuConsola menuGuestUser;
 	
 	public static void main(String[] args) {
 		Main.iniConfigs();
@@ -49,23 +49,22 @@ public class Main {
 		Data.operaciones.put("4", new NewAdmin("4"));
 		
 		//Operaciones de mis usuarios
-		//Data.operaciones.put("5", new SignOut("5"));
+		Data.operaciones.put("5", new SignOut("5"));
 		
 		//Cargar los datos
-		//Data.loadData();
+		Data.loadData();
 		
 		
-		//Usuario invitado o menu invitado(por defecto)
-		
+		//Menu por defecto----Invitado
 		//Operaciones de mi usuario por defecto
 		@SuppressWarnings("serial")
 		ArrayList<OpcionesMenu> guestOptions = new ArrayList<OpcionesMenu>(){
 			{
 				add(new Login());
-				//add(new SignUp());
+				add(new SignUp());
 			}
 		};
 		
-		Main.menuGuestUser = new MenuDeConsola(guestOptions);
+		Main.menuGuestUser = new MenuConsola(guestOptions);
 	}
 }

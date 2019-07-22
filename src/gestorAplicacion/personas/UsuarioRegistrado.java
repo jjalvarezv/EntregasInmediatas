@@ -3,6 +3,7 @@ import uiMain.Main;
 import uiMain.MenuConsola;
 import uiMain.MenuDeConsola;
 import Datos.Data;
+import gestorAplicacion.users.User;
 
 public abstract class UsuarioRegistrado {
 	private String userName;
@@ -83,6 +84,25 @@ public abstract class UsuarioRegistrado {
 	
 	public long getCedula() {
 		return cedula;
+	}
+	
+	public static String newUser(String username, String password, String name, Long cc){
+		UsuarioRegistrado user = new UsuarioRegistrado();//NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
+		//Validaciones de cada parametro
+		user.setNom(name);
+		user.setUsername(username);
+		user.setCedula(cc);
+		user.setPassword(password);
+		
+		//Menu por defecto al crear un nuevo usuario
+		String [] operations = {"5"};
+		MenuConsola.newMenu(user, operations);
+		if(true){
+			Data.usuarios.put(username,user);
+			return "Ha sido creado";
+		}else{
+			return "No ha sido creado...";
+		}
 	}
 	
 }
