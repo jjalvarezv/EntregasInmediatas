@@ -28,7 +28,7 @@ public abstract class UsuarioRegistrado {
 		if (us != null) {
 			if(us.getPassword().equals(pass)) {
 				Main.user = us;
-				return "Bienvenido" + username;
+				return "Bienvenido " + username;
 			}
 			else {
 				return "Contraseña invalida";

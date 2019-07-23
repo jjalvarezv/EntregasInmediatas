@@ -31,30 +31,6 @@ public class Data {
 	public static HashMap<String, Pedido> pedidos = new HashMap<String, Pedido>();
 	
 	
-	public static void cargarAdmin(String ruta) throws IOException {
-		
-		File archivo = new File(ruta);
-		try {
-			FileReader fr = new FileReader (archivo);
-			BufferedReader br = new BufferedReader(fr);
-			String linea;
-			while((linea=br.readLine())!=null) {
-				if (!linea.isEmpty()) {
-            		String [] ADMIN = linea.split(";");
-            		String username = ADMIN[0];
-            		String pass = ADMIN[1];
-            		String nombre = ADMIN[2];
-            		String cc = ADMIN[3];
-            		new Admin(username, pass, nombre, Long.parseLong(cc));
-				} 
-			}
-			br.close();
-		}
-		catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo");
-		}
-	}
-	
 	public static void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
@@ -113,9 +89,9 @@ public class Data {
 	public static void loadData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		loadUsers(ruta);
-		loadAdminUsers(ruta);
-		loadMenus(ruta);
+		CargarClientes(ruta);
+		CargarDomiciliarios(ruta);
+		CargarPropetarioRestaurante(ruta);
 	}
 	
 	private static void loadMenus(String ruta) {
@@ -137,8 +113,30 @@ public class Data {
         	//Error al leer
         }
 	}
-	
-	private static void loadUsers(String ruta) {
+	private static void CargarAdmin(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"admin.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] user = line.split(";");
+            		String username = user[0];
+            		String password = user[1];
+            		String name = user[2];
+            		String cc = user[3];
+            		String direccion = user[4];
+            		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
+            		Data.admins.put(username,admin);
+            	}
+            }
+            br.close();
+        }
+		catch(Exception e){
+            //Error al leer
+        }
+	}
+	private static void CargarClientes(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"clientes.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -156,12 +154,14 @@ public class Data {
             	}
             }
             br.close();
-        }catch(Exception e){
+        }
+		catch(Exception e){
             //Error al leer
         }
-		
+	}
+	private static void CargarDomiciliarios(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"Domiciliario.txt");
+			FileReader fr = new FileReader(ruta+"omiciliarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -176,12 +176,14 @@ public class Data {
             	}
             }
             br.close();
-        }catch(Exception e){
+        }
+		catch(Exception e){
             //Error al leer
         }
-		
+	}
+	private static void CargarPropetarioRestaurante(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"PropietarioRestaurantes.txt");
+            FileReader fr = new FileReader(ruta+"propietarioRestaurante.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -196,60 +198,15 @@ public class Data {
             		}
             }
             br.close();
-        }catch(Exception e){
+        }
+		catch(Exception e){
             //Error al leer
         }
 	}
 	
-	private static void loadAdminUsers(String ruta) {
-		try{
-            FileReader fr = new FileReader(ruta+"admins.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while((line = br.readLine()) != null){
-            	if (!line.isEmpty()) {
-            		String [] user = line.split(";");
-            		String username = user[0];
-            		String password = user[1];
-            		String name = user[2];
-            		String cc = user[3];
-            		Admin ad = new Admin(username, password, name, Long.parseLong(cc));
-            		Data.admins.put(username,ad);
-            	}
-            }
-            br.close();
-        }catch(Exception e){
-        	//Error al leer
-        }
-	}
-	
-	private static void loadProducto(String ruta) {
-		try{
-            FileReader fr = new FileReader(ruta+"producto.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while((line = br.readLine()) != null){
-            	if (!line.isEmpty()) {
-            		String [] prod = line.split(";");
-            		String id = prod[0];
-            		String codigo = prod[1];
-            		String name = prod[2];
-            		String valor = prod[3];
-            		String time = prod[4];
-            		Producto ad = new Producto(id, Integer.parseInt(codigo), name, Integer.parseInt(valor), Integer.parseInt(time));
-            		Data.productos.put(id,ad);
-            	}
-            }
-            br.close();
-        }catch(Exception e){
-        	//Error al leer
-        }
-	}
-	
-	
 	private static void createFilesAndDirs() {
 		try {
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
 		File directory = new File(ruta);
 	    if (! directory.exists()){
 	        directory.mkdir();
