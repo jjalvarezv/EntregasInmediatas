@@ -1,9 +1,8 @@
 package gestorAplicacion.personas;
 import uiMain.Main;
 import uiMain.MenuConsola;
-import uiMain.MenuDeConsola;
 import Datos.Data;
-import gestorAplicacion.users.User;
+import gestorAplicacion.personas.UsuarioRegistrado;
 
 public abstract class UsuarioRegistrado {
 	private String userName;
@@ -19,7 +18,6 @@ public abstract class UsuarioRegistrado {
 		this.pass = pass;
 		this.nombre = nombre;
 		this.cedula = cc;
-		Data.usuarios.put(userName, this);
 		
 	}
 	
@@ -87,7 +85,7 @@ public abstract class UsuarioRegistrado {
 	}
 	
 	public static String newUser(String username, String password, String name, Long cc){
-		UsuarioRegistrado user = new UsuarioRegistrado();//NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
+		Cliente user = new Cliente();// ya si la puedo hace ggg....NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
 		//Validaciones de cada parametro
 		user.setNom(name);
 		user.setUsername(username);

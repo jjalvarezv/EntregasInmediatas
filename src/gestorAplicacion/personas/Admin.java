@@ -54,7 +54,7 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 		String [] operations = {"1","2","3","4","5"};
 		MenuConsola.newMenu(user, operations);
 		if(true){
-			Data.usuarios.put(username,user);
+			Data.admins.put(username,user);
 			return "Se creo el administrador";
 		}else{
 			return "No se pudo crear el administrador...";

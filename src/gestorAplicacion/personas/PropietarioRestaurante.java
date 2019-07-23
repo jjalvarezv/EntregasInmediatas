@@ -9,6 +9,10 @@ public class PropietarioRestaurante extends UsuarioRegistrado{
 		restaurante = rest;
 	}
 	
+	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc) {
+		super(userName, pass, nombre, cc);
+	}
+	
 	public void modificarProductos() {
 		
 	}
