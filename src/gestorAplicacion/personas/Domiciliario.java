@@ -20,6 +20,7 @@ public class Domiciliario extends UsuarioRegistrado implements CalcularGanancias
 	}
 	public Domiciliario(String userName, String pass, String nombre, Long cc) {
 		super(userName, pass, nombre, cc);
+		this.estado = ESTADO_DISPONIBLE;
 	}
 	
 	public void asignarPedido(gestorAplicacion.gestion.Pedido pedido) {
