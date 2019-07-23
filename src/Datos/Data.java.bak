@@ -1,28 +1,35 @@
 package Datos;
 import java.io.*;
 import java.util.HashMap;
-
-import gestorAplicacion.gestion.Pedido;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import gestorAplicacion.personas.*;
+import uiMain.MenuConsola;
+import uiMain.MenuConsola;
+=======
 import gestorAplicacion.gestion.Restaurante;
 import gestorAplicacion.personas.*;
 import uiMain.MenuConsola;
-
+>>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
+=======
+import gestorAplicacion.gestion.Restaurante;
+import gestorAplicacion.personas.*;
+import uiMain.MenuConsola;
+>>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
 import uiMain.OpcionesMenu;
 
 public class Data {
 	public static HashMap<String, OpcionesMenu> operaciones = new HashMap<String, OpcionesMenu>();
 	public static HashMap<String, MenuConsola> menus = new HashMap<String, MenuConsola>();
 	public static HashMap<String, UsuarioRegistrado> usuarios = new HashMap<String, UsuarioRegistrado>();
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
-
-	
-	// hashmap de los domiciliarios que hay
-	public static HashMap<String, Domiciliario> domiciliarios = new HashMap<String, Domiciliario>();
-	
-	// hashmap de los pedidos que hay
-	public static HashMap<String, Pedido> pedidos = new HashMap<String, Pedido>();
-	
+>>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
+=======
+	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
+>>>>>>> 77efca06310b7746c76ae7042a26045c90d6baea
 	
 	public static void cargarAdmin(String ruta) throws IOException {
 		
@@ -47,41 +54,6 @@ public class Data {
 			System.err.println("No se encontró el archivo");
 		}
 			
-		
-		
-	}
-	
-	public static void saveData() {
-		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		saveUsers(ruta);
-		saveMenus(ruta);
-	}
-	
-	public static void loadData() {
-		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		loadUsers(ruta);
-		loadAdminUsers(ruta);
-		loadMenus(ruta);
-	}
-	
-	private static void createFilesAndDirs() {
-		try {
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		File directory = new File(ruta);
-	    if (! directory.exists()){
-	        directory.mkdir();
-	    }
-		File usuariosRegistradosFile = new File(ruta+"users.txt");
-		File usuariosAdminFile = new File(ruta+"adminUsers.txt");
-		File usuariosMenus = new File(ruta+"usersMenus.txt");
-		usuariosRegistradosFile.createNewFile();
-		usuariosAdminFile.createNewFile();
-		}
-		catch(IOException e){
-			//Ocurrio algo al crear las carpetas y los archivos
-		}
 	}
 }
 

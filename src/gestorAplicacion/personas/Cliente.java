@@ -23,14 +23,14 @@ public class Cliente extends UsuarioRegistrado{
 		this.direccion = direccion;		
 	}
 	
-	public void solicitarPedido( int direcc, ArrayList<Item> itemsProductos ) {
+	/*public void solicitarPedido( int direcc, ArrayList<Item> itemsProductos ) {
 		int tiempo_mayor= itemsProductos.get(0).getTiempo();		
 		for(int x=0;x<itemsProductos.size();x++) {
 			 if( itemsProductos.get(x).getTiempo() > tiempo_mayor) {
 				 tiempo_mayor=  itemsProductos.get(x).getTiempo();
 			 }
 			}
-		int tiempo_transporte= 20;
+		int tiempo_transporte= 40;
 		String id= Long.toString(Cliente.super.getCedula());
 		int tamaño= pedidos.size();
 		id.concat(String.valueOf(tamaño));
@@ -39,10 +39,7 @@ public class Cliente extends UsuarioRegistrado{
 		gestorAplicacion.gestion.Pedido pedido = new gestorAplicacion.gestion.Pedido(this, 0, direcc, tiempo_mayor + tiempo_transporte, itemsProductos  );
 		HashMap<String, Domiciliario> domiciliarios  = Data.domiciliarios;
 		
-		/*variable auxiliar, para verificar si el pedido que acabamos de crear tiene un 
-		 * domiciliario asignado
-		*/
-		
+	
 		boolean auxDomiciliarioPedido = false; 
 		//recorremos la lista de domiciliarios para verificar cual domiciliario esta disponible
 		for (String key : domiciliarios.keySet()) {
@@ -69,12 +66,12 @@ public class Cliente extends UsuarioRegistrado{
 			
 		}
 		
-	}
+	}*/
 	
-	public void cancelarPedido() {
+	/*public void cancelarPedido() {
 		//this.pedido.clear();
 		pedidos.get(pedidos.size()-1).setEstado(gestorAplicacion.gestion.Pedido.ESTADO_CANCELADO);// mejorar mañana 
-	}
+	}*/
 	
 	public void cancelarDeuda() {
 		//JOOOJOJJJOJOJOJOJOJOJOJOJOJOJ
