@@ -3,13 +3,7 @@ import java.util.ArrayList;
 import Datos.Data;
 import gestorAplicacion.personas.UsuarioRegistrado;
 
-import uiMain.operaciones.AddOpt;
-import uiMain.operaciones.Login;
-import uiMain.operaciones.VerOpt;
-import uiMain.operaciones.NewAdmin;
-import uiMain.operaciones.DelOpt;
-import uiMain.operaciones.SignOut;
-import uiMain.operaciones.SignUp;
+import uiMain.operaciones.*;
 
 public class Main {
 	public static UsuarioRegistrado user;
@@ -50,6 +44,7 @@ public class Main {
 		
 		//Operaciones de mis usuarios
 		Data.operaciones.put("5", new SignOut("5"));
+		Data.operaciones.put("6", new BusRest("6"));
 		
 		//Cargar los datos
 		Data.CargarData();
@@ -64,7 +59,6 @@ public class Main {
 				add(new SignUp());
 			}
 		};
-		
 		Main.menuGuestUser = new MenuConsola(guestOptions);
 	}
 }

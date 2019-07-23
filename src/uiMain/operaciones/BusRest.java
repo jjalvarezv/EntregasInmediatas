@@ -9,6 +9,10 @@ import gestorAplicacion.gestion.Restaurante;
 
 public class BusRest extends OpcionesMenu {
 	
+	public BusRest(String key) {
+		super(key);
+	}
+
 	@Override
 	public void ejecutar() {
 		Scanner leer = new Scanner(System.in);

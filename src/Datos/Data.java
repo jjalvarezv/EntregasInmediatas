@@ -35,7 +35,7 @@ public class Data {
 	public static void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		GuardarUsuarios(ruta);
+		//GuardarUsuarios(ruta);
 		//saveMenus(ruta);
 	}
 	
@@ -141,7 +141,6 @@ public class Data {
             		String password = user[1];
             		String name = user[2];
             		String cc = user[3];
-            		String direccion = user[4];
             		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
             		Data.admins.put(username,admin);
             	}

@@ -93,7 +93,7 @@ public abstract class UsuarioRegistrado {
 		user.setPassword(password);
 		
 		//Menu por defecto al crear un nuevo usuario
-		String [] operations = {"5"};
+		String [] operations = {"5","6"};
 		MenuConsola.newMenu(user, operations);
 		if(true){
 			Data.usuariosRegistrados.put(username,user);
