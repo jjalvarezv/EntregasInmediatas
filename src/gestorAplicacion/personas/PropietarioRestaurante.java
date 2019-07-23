@@ -1,4 +1,6 @@
 package gestorAplicacion.personas;
+import Datos.Data;
+import gestorAplicacion.gestion.Producto;
 
 public class PropietarioRestaurante extends UsuarioRegistrado{
 	private gestorAplicacion.gestion.Restaurante restaurante;
@@ -13,8 +15,12 @@ public class PropietarioRestaurante extends UsuarioRegistrado{
 		super(userName, pass, nombre, cc);
 	}
 	
-	public void modificarProductos() {
-		
+	public void agregarProductos(Producto producto) {
+		Data.productos.put(producto.getId(), producto);
+	}
+	
+	public void eliminarProductos() {
+	
 	}
 	
 	public void logout() {

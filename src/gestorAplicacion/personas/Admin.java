@@ -23,12 +23,11 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 	public void aggDomiciliario(Domiciliario domi1) {
 		Data.domiciliarios.put(domi1.getUsername(), domi1);
 	}
-	public void aggCliente() {
-		
+	
+	public void aggPropietario(PropietarioRestaurante prop){
+		Data.propietarios.put(prop.getUsername(), prop);
 	}
-	public void aggPropietario() {
-		
-	}
+	
 	@Override
 	public int calcular_Ganancias() {
 		return (int) (Item.it.getTotal() * 0.45);

@@ -1,14 +1,16 @@
 package gestorAplicacion.gestion;
 
 public class Producto {
-
-	private Restaurante restaurante;
+	
+	private String id_prod;
+	private int codigo_rest;
 	private String nombre_producto;
 	private int  valor_unidadad ;
 	private int tiempo_de_preparacion;
 	
-	public Producto(Restaurante rest, String nombre, int valor, int tiempo) {
-		this.restaurante= rest;
+	public Producto(String id, int codigo_rest, String nombre, int valor, int tiempo) {
+		this.id_prod=id;
+		this.codigo_rest= codigo_rest;
 		this.nombre_producto= nombre;
 		this.valor_unidadad= valor;
 		this.tiempo_de_preparacion= tiempo;
@@ -16,8 +18,8 @@ public class Producto {
 	public void  setValorUnidad(int nuevo_valor) {
 		this.valor_unidadad= nuevo_valor;
 	}
-	public Restaurante   getRestaurante() {
-		return this.restaurante;
+	public int getCodigoRestaurante() {
+		return this.codigo_rest;
 				
 	}
 	public String getNombreProducto() {
@@ -28,5 +30,8 @@ public class Producto {
 	}
 	public int getTiempoDePreparacion() {
 		return this.tiempo_de_preparacion;
+	}
+	public String getId() {
+		return this.id_prod;
 	}
 }

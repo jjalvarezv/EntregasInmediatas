@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import gestorAplicacion.gestion.Pedido;
+import gestorAplicacion.gestion.Producto;
 import gestorAplicacion.gestion.Restaurante;
 import gestorAplicacion.personas.*;
 import gestorAplicacion.personas.Admin;
@@ -19,6 +20,8 @@ public class Data {
 	public static HashMap<String, PropietarioRestaurante> propietarios = new HashMap<String, PropietarioRestaurante>();
 	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
 	public static HashMap<String, Admin> admins = new HashMap<String, Admin>();
+	public static HashMap<String, Producto> productos = new HashMap<String, Producto>();
+
 
 	
 	// hashmap de los domiciliarios que hay
@@ -212,6 +215,29 @@ public class Data {
             		String cc = user[3];
             		Admin ad = new Admin(username, password, name, Long.parseLong(cc));
             		Data.admins.put(username,ad);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+        	//Error al leer
+        }
+	}
+	
+	private static void loadProducto(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"producto.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] prod = line.split(";");
+            		String id = prod[0];
+            		String codigo = prod[1];
+            		String name = prod[2];
+            		String valor = prod[3];
+            		String time = prod[4];
+            		Producto ad = new Producto(id, Integer.parseInt(codigo), name, Integer.parseInt(valor), Integer.parseInt(time));
+            		Data.productos.put(id,ad);
             	}
             }
             br.close();
