@@ -23,6 +23,9 @@ public class Cliente extends UsuarioRegistrado{
 		this.direccion = direccion;		
 	}
 	
+	public String getDireccion() {
+		return this.direccion;
+	}
 	/*public void solicitarPedido( int direcc, ArrayList<Item> itemsProductos ) {
 		int tiempo_mayor= itemsProductos.get(0).getTiempo();		
 		for(int x=0;x<itemsProductos.size();x++) {

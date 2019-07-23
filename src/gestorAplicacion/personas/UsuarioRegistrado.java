@@ -24,7 +24,7 @@ public abstract class UsuarioRegistrado {
 	public abstract void logout();
 	
 	public static String login(String username, String pass) {
-		UsuarioRegistrado us = Data.usuarios.get(username);
+		UsuarioRegistrado us = Data.usuariosRegistrados.get(username);
 		if (us != null) {
 			if(us.getPassword().equals(pass)) {
 				Main.user = us;
@@ -41,7 +41,7 @@ public abstract class UsuarioRegistrado {
 
 	
 	public static UsuarioRegistrado getUserByUsername(String username){
-		return Data.usuarios.get(username);
+		return Data.usuariosRegistrados.get(username);
     }
 	
 	public String getNom() {
@@ -96,7 +96,7 @@ public abstract class UsuarioRegistrado {
 		String [] operations = {"5"};
 		MenuConsola.newMenu(user, operations);
 		if(true){
-			Data.usuarios.put(username,user);
+			Data.usuariosRegistrados.put(username,user);
 			return "Ha sido creado";
 		}else{
 			return "No ha sido creado...";

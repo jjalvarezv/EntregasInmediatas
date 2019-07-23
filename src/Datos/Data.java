@@ -14,9 +14,10 @@ import uiMain.MenuConsola;
 import uiMain.OpcionesMenu;
 
 public class Data {
+	public static HashMap<String, UsuarioRegistrado> usuariosRegistrados = new HashMap<String, UsuarioRegistrado>();
 	public static HashMap<String, OpcionesMenu> operaciones = new HashMap<String, OpcionesMenu>();
 	public static HashMap<String, MenuConsola> menus = new HashMap<String, MenuConsola>();
-	public static HashMap<String, Cliente> usuarios = new HashMap<String, Cliente>();
+	public static HashMap<String, Cliente> clientes = new HashMap<String, Cliente>();
 	public static HashMap<String, PropietarioRestaurante> propietarios = new HashMap<String, PropietarioRestaurante>();
 	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
 	public static HashMap<String, Admin> admins = new HashMap<String, Admin>();
@@ -34,32 +35,46 @@ public class Data {
 	public static void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		saveUsers(ruta);
-		saveMenus(ruta);
+		GuardarUsuarios(ruta);
+		//saveMenus(ruta);
 	}
 	
 	//este metodo no tengo muy claro para que es .....
-	private static void saveUsers(String ruta){
+	private static void GuardarUsuarios(String ruta){
 		try {
-            FileWriter fw = new FileWriter(ruta+"users.txt");
-            FileWriter fwAdmin = new FileWriter(ruta+"adminUsers.txt");
-            PrintWriter pw = new PrintWriter(fw);
-            PrintWriter pwAdmin = new PrintWriter(fwAdmin);
-    		for (Map.Entry<String, User> user : users.entrySet()) {
-    			User userObj = user.getValue();
+            FileWriter fwCl = new FileWriter(ruta+"clientes.txt");
+            FileWriter fwAd = new FileWriter(ruta+"admin.txt");
+            FileWriter fwDom = new FileWriter(ruta+"domiciliarios.txt");
+            FileWriter fwPro = new FileWriter(ruta+"propietarioRestaurante.txt");
+            
+            PrintWriter pwCl = new PrintWriter(fwCl);
+            PrintWriter pwAd = new PrintWriter(fwAd);
+            PrintWriter pwDom = new PrintWriter(fwDom);
+            PrintWriter pwPro = new PrintWriter(fwPro);
+    		for (Map.Entry<String, UsuarioRegistrado> user : usuariosRegistrados.entrySet()) {
+    			UsuarioRegistrado userObj = user.getValue();
     			String line = userObj.getUsername()+";";
-    			line += userObj.getName()+";";
-    			line += userObj.getEmail()+";";
-    			line += userObj.getPassword();
-    			if(userObj instanceof AdminUser) {
-    				pwAdmin.println(line);
+    			line += userObj.getPassword()+";";
+    			line += userObj.getNom()+";";
+    			line += userObj.getCedula();
+    			if(userObj instanceof Admin) {
+    				pwAd.println(line);
 					
-				}else {
-					pw.println(line);
+				}
+    			else if(userObj instanceof Domiciliario) {
+					pwDom.println(line);
+    			}
+    			else if(userObj instanceof PropietarioRestaurante) {
+					pwPro.println(line);
+    			}
+    			else {
+    				pwCl.println(line);
     			}
     		}
-            pw.close();
-            pwAdmin.close();
+            pwCl.close();
+            pwAd.close();
+            pwDom.close();
+            pwPro.close();
             
         } catch (IOException ioObj) {
         	//Ocurrio algo al guardar en txt los datos
@@ -86,9 +101,10 @@ public class Data {
         }
 	}
 	
-	public static void loadData() {
+	public static void CargarData() {
 		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
+		CargarAdmin(ruta);
 		CargarClientes(ruta);
 		CargarDomiciliarios(ruta);
 		CargarPropetarioRestaurante(ruta);
@@ -150,7 +166,7 @@ public class Data {
             		String cc = user[3];
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
-            		Data.usuarios.put(username,cliente);
+            		Data.clientes.put(username,cliente);
             	}
             }
             br.close();
@@ -161,7 +177,7 @@ public class Data {
 	}
 	private static void CargarDomiciliarios(String ruta) {
 		try{
-			FileReader fr = new FileReader(ruta+"omiciliarios.txt");
+			FileReader fr = new FileReader(ruta+"domiciliarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -211,8 +227,8 @@ public class Data {
 	    if (! directory.exists()){
 	        directory.mkdir();
 	    }
-		File usuariosRegistradosFile = new File(ruta+"users.txt");
-		File usuariosAdminFile = new File(ruta+"adminUsers.txt");
+		File usuariosRegistradosFile = new File(ruta+"clientes.txt");
+		File usuariosAdminFile = new File(ruta+"admins.txt");
 		File usuariosMenus = new File(ruta+"usersMenus.txt");
 		usuariosRegistradosFile.createNewFile();
 		usuariosAdminFile.createNewFile();

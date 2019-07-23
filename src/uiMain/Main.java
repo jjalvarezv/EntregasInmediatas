@@ -52,7 +52,7 @@ public class Main {
 		Data.operaciones.put("5", new SignOut("5"));
 		
 		//Cargar los datos
-		//Data.loadData();
+		Data.CargarData();
 		
 		
 		//Menu por defecto----Invitado
