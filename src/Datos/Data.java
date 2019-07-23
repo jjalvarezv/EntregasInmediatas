@@ -39,7 +39,7 @@ public class Data {
 		//saveMenus(ruta);
 	}
 	
-	//este metodo no tengo muy claro para que es .....
+	//este metodo es para guardar los usuarios de cualquier tipo en el txt
 	private static void GuardarUsuarios(String ruta){
 		try {
             FileWriter fwCl = new FileWriter(ruta+"clientes.txt");
@@ -124,7 +124,7 @@ public class Data {
             		MenuDeConsola.newMenu(user, operations);
             	}
             }
-            br.close();
+            br.close();			
         }catch(Exception e){
         	//Error al leer
         }
@@ -146,9 +146,10 @@ public class Data {
             	}
             }
             br.close();
-        }
-		catch(Exception e){
-            //Error al leer
+		}catch(IndexOutOfBoundsException e) {
+			System.out.print("Error de numberformatException\n");
+        }catch(Exception e){
+            System.out.print("Error al cargar admins\n");
         }
 	}
 	private static void CargarClientes(String ruta) {
@@ -171,7 +172,7 @@ public class Data {
             br.close();
         }
 		catch(Exception e){
-            //Error al leer
+			System.out.print("Error al cargar clientes\n");
         }
 	}
 	private static void CargarDomiciliarios(String ruta) {
@@ -193,7 +194,7 @@ public class Data {
             br.close();
         }
 		catch(Exception e){
-            //Error al leer
+			System.out.print("Error al cargar domiciliarios\n");
         }
 	}
 	private static void CargarPropetarioRestaurante(String ruta) {
@@ -209,13 +210,16 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
-            		Data.propietarios.put(username,pr);
+            		Data.propietarios.put(username,pr); 
             		}
             }
             br.close();
-        }
-		catch(Exception e){
-            //Error al leer
+		}catch(NumberFormatException e) {
+			System.out.print("Error de numberformatException\n");
+		}catch(IndexOutOfBoundsException e) {
+			System.out.print("Error de index\n");
+        }catch(Exception e){
+			System.out.print("Error al cargar Propietarios de Restaurante\n");
         }
 	}
 	

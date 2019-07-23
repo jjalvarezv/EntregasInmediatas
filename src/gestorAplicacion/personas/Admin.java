@@ -6,17 +6,14 @@ import Datos.Data;
 import gestorAplicacion.gestion.Item;
 import gestorAplicacion.personas.Admin;
 import uiMain.MenuConsola;
-import uiMain.MenuConsola;
 
 public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
-	
-	private ArrayList<Admin> listaAdmin;
 	
 	
 	public Admin() {}
 	public Admin(String userName, String pass, String nombre, Long cc) {
 		super(userName, pass, nombre, cc);
-		listaAdmin.add(this);
+		
 	}
 	
 	
@@ -33,9 +30,6 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 		return (int) (Item.it.getTotal() * 0.45);
 	}
 	
-	public ArrayList<Admin> getAdmin() {
-		return listaAdmin;
-	}
 	
 	public void logout() {
 		

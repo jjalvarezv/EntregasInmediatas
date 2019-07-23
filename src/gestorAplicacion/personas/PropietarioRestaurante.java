@@ -13,6 +13,8 @@ public class PropietarioRestaurante extends UsuarioRegistrado{
 	
 	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc) {
 		super(userName, pass, nombre, cc);
+		this.restaurante = restaurante.palitos;
+		
 	}
 	
 	public void agregarProductos(Producto producto) {
