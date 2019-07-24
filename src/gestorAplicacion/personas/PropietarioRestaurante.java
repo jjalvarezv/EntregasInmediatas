@@ -31,5 +31,9 @@ public class PropietarioRestaurante extends UsuarioRegistrado{
 	public void logout() {
 		
 	}
+	
+	public int getCodigo() {
+		return this.codigoRestaurante;
+	}
 
 }
