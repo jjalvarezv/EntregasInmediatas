@@ -236,7 +236,7 @@ public class Data {
 	    }
 		File usuariosRegistradosFile = new File(ruta+"clientes.txt");
 		File usuariosAdminFile = new File(ruta+"admins.txt");
-		File usuariosMenus = new File(ruta+"usersMenus.txt");
+		File usuariosMenus = new File(ruta+"usersmenus.txt");
 		usuariosRegistradosFile.createNewFile();
 		usuariosAdminFile.createNewFile();
 		}
