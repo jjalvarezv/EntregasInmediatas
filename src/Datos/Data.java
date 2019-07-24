@@ -213,6 +213,8 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		Domiciliario dom = new Domiciliario(username, password, name, Long.parseLong(cc));
+            		String [] operations = {"5","7","8"};
+        			MenuConsola.newMenu(dom, operations);
             		Data.domiciliarios.put(username,dom);
             		Data.usuariosRegistrados.put(username, dom);
             	}
