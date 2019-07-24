@@ -9,6 +9,9 @@ import Datos.Data;
 import gestorAplicacion.gestion.*;
 
 public class AddProducto extends OpcionesMenu {
+	public AddProducto(String key) {
+		super(key);
+	}
 	@Override
 	public void ejecutar(){
 		int c = ((PropietarioRestaurante)Main.user).getCodigo();
