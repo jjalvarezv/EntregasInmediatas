@@ -198,7 +198,7 @@ public class Data {
             		String cc = user[3];
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
-            		String [] operations = {"5","6"};
+            		String [] operations = {"5","6", "12"};
         			MenuConsola.newMenu(cliente, operations);
             		Data.clientes.put(username,cliente);
             		Data.usuariosRegistrados.put(username, cliente);

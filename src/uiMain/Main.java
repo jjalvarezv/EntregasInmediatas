@@ -45,6 +45,7 @@ public class Main {
 		//Operaciones de mis usuarios/clientes
 		Data.operaciones.put("5", new SignOut("5"));
 		Data.operaciones.put("6", new BusRest("6"));
+		Data.operaciones.put("12", new SolicitarPedido("12"));
 		
 		//Operaciones de los domiciliarios
 		Data.operaciones.put("7", new EntPed("7"));

@@ -44,7 +44,7 @@ public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 		user.setPassword(password);
 		
 		//Menu por defecto al crear un nuevo usuario administrador
-		String [] operations = {"1","2","3","4","5"};
+		String [] operations = {"1","2","3","4","5","9","10","11"};
 		MenuConsola.newMenu(user, operations);
 		if(true){
 			Data.admins.put(username,user);
