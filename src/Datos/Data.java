@@ -291,10 +291,12 @@ public class Data {
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
             		String [] rest = line.split(";");
-            		String codigo = rest[0];
-            		String direccion = rest[1];
-            		String telefono = rest[2];
-            		Restaurante restaurante = new Restaurante(Integer.parseInt(codigo), direccion, Long.parseLong(telefono));
+            		String nombre = rest[0];
+            		String codigo = rest[1];
+            		String direccion = rest[2];
+            		String cedula = rest[3];
+            		String telefono = rest[4];
+            		Restaurante restaurante = new Restaurante(nombre,Integer.parseInt(codigo), direccion,Long.parseLong(cedula),Long.parseLong(telefono));
             		Data.restaurantes.put(codigo,restaurante);
             	}
             }

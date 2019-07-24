@@ -23,13 +23,6 @@ public class Restaurante implements CalcularGanancias{
 		Data.restaurantes.put(Integer.toString(cod), this);
 
 	}
-	public Restaurante(int cod, String direcc, long tel){
-		this.codigo= cod;
-		this.direccion= direcc;
-		//this.cedulaPropietario= cedulaPropietario;
-		this.telefono= tel;
-		
-	}
 	public void agregarProducto(Producto producto, long CedulaPropietario) {
 		if (CedulaPropietario == this.cedulaPropietario) {
 			Carta.add(producto);
