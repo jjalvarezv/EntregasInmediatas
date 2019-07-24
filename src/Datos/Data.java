@@ -39,6 +39,7 @@ public class Data {
 		GuardarUsuarios(ruta);
 		GuardarMenus(ruta);
 		GuardarRestaurantes(ruta);
+		GuardarPedidos(ruta);
 	}
 	
 	
@@ -53,6 +54,21 @@ public class Data {
 			writer.close();
 		}catch (IOException e){
 			System.out.print("Error al guardar clientes");
+		}
+	}
+	
+	
+	private static void GuardarPedidos(String ruta) {
+		try {
+			PrintWriter writer = new PrintWriter(ruta+"pedidos.txt"); 
+			for (Map.Entry<String, Pedido> entry:pedidos.entrySet()) {
+				Pedido ped = entry.getValue();
+				writer.print(ped.getProductos()+";"+ped.getCedulaCliente()+";"+ped.getUserDomiciliario()+";"+ped.getCodRestaurante()+";"+ped.getDireccion());
+				
+			}
+			writer.close();
+		}catch (IOException e){
+			System.out.print("Error al guardar pedidos");
 		}
 	}
 	
