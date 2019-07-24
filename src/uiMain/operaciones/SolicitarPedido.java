@@ -26,7 +26,7 @@ public class SolicitarPedido extends OpcionesMenu {
 		//Data.operaciones.get("6").ejecutar();
 		System.out.println(" Elige el restaurante");
 		for (String key : Data.restaurantes.keySet() ) {
-			System.out.println(Data.restaurantes.get(key).toString());
+			System.out.println("Codigo: "+Data.restaurantes.get(key).getCodigo()+" Nombre Restaurante: "+Data.restaurantes.get(key).getNombre());
 			System.out.println();
 		}
 		Scanner leerRestaurante = new Scanner(System.in);

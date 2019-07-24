@@ -94,7 +94,7 @@ public abstract class UsuarioRegistrado {
 		user.setDireccion(direccion);
 		
 		//Menu por defecto al crear un nuevo usuario
-		String [] operations = {"5","6", "12"};
+		String [] operations = {"5","6", "12", "12"};
 		MenuConsola.newMenu(user, operations);
 		if(true){
 			Data.usuariosRegistrados.put(username,user);

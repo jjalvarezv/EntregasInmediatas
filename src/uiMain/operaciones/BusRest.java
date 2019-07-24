@@ -38,7 +38,7 @@ public class BusRest extends OpcionesMenu {
 				
 			}
 		}
-		leer.close();
+		//leer.close();
 	}
 	
 	public String toString() {

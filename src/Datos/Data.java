@@ -1,5 +1,6 @@
 package Datos;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -129,14 +130,16 @@ public class Data {
 	//Este metodo guarda los restaurantes en el txt restaurantes.txt
 	private static void GuardarRestaurantes(String ruta){
 		try {
+			System.out.print("Entra a Guardar Restaurantes  ......");
             FileWriter fw = new FileWriter(ruta+"restaurantes.txt");
             PrintWriter pw = new PrintWriter(fw);
     		for (Map.Entry<String, Restaurante> rest : restaurantes.entrySet()) {
     			Restaurante restObj = rest.getValue();
-    			String line = restObj.getCodigo()+";"+restObj.getDireccion()+";"+restObj.getTelefono();
+    			String line = restObj.getNombre()+";"+restObj.getCodigo()+";"+restObj.getDireccion()+";"+restObj.getCedulaPropietario()+";"+restObj.getTelefono();
+    			pw.println(line);
     			//Correccion por el ; extra
     		}
-    		
+    		System.out.print("Sale a Guardar Restaurantes ...... ");
             pw.close();
             
         } catch (IOException ioObj) {
@@ -152,6 +155,7 @@ public class Data {
 		CargarDomiciliarios(ruta);
 		CargarPropetarioRestaurante(ruta);
 		CargarRestaurantes(ruta);
+		CargarProductos(ruta);
 	}
 	
 	private static void loadMenus(String ruta) {
@@ -277,7 +281,7 @@ public class Data {
             		}
             }
             br.close();
-            PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
+           // PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
         }catch(Exception e){
 			System.out.print("Error al cargar Propietarios de Restaurante\n");
         }
@@ -301,10 +305,40 @@ public class Data {
             	}
             }
             br.close();
-            PrintWriter writer = new PrintWriter(ruta+"restaurantes.txt"); writer.print(""); writer.close(); 
+           // PrintWriter writer = new PrintWriter(ruta+"restaurantes.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
 			System.out.print("Error al cargar domiciliarios\n");
+        }
+	}
+	
+	private static void CargarProductos(String ruta) {
+		try{
+			FileReader fr = new FileReader(ruta+"productos.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+
+            ArrayList<Producto> ll = new ArrayList<Producto>();
+
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] rest = line.split(";");
+            		String id = rest[0];
+            		String codigoRestaurante = rest[1];
+            		String nombre = rest[2];
+            		String valor = rest[3];
+            		String tiempo = rest[4];
+            		Producto prod = new Producto(id,Integer.parseInt(codigoRestaurante),nombre, Integer.parseInt(valor) ,Integer.parseInt(tiempo));
+            		
+            		Data.restaurantes.get(codigoRestaurante).agregarProducto(prod);
+            	}
+            }
+            //Data.restaurantes.get(001).setCarta(ll);
+            br.close();
+            //PrintWriter writer = new PrintWriter(ruta+"restaurantes.txt"); writer.print(""); writer.close(); 
+        }
+		catch(Exception e){
+			System.out.print("Error al cargar CargarProductos\n");
         }
 	}
 	

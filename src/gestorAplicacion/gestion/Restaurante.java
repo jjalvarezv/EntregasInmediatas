@@ -20,8 +20,12 @@ public class Restaurante implements CalcularGanancias{
 		this.direccion= direcc;
 		this.cedulaPropietario= cedulaPropietario;
 		this.telefono= tel;
-		Data.restaurantes.put(Integer.toString(cod), this);
+		//Data.restaurantes.put(Integer.toString(cod), this);
+		Carta = new ArrayList<Producto>();
 
+	}
+	public void agregarProducto(Producto producto) {
+			Carta.add(producto);	
 	}
 	public void agregarProducto(Producto producto, long CedulaPropietario) {
 		if (CedulaPropietario == this.cedulaPropietario) {
@@ -36,6 +40,10 @@ public class Restaurante implements CalcularGanancias{
 	@Override
 	public int calcular_Ganancias() {
 		return (int) (Item.it.getTotal() * 0.45);
+	}
+	
+	public void setCarta(ArrayList<Producto> carta) {
+		this.Carta = carta;
 	}
 	public void setDireccion(String nueva_direccion) {
 		this.direccion= nueva_direccion;		
