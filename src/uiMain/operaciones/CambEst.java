@@ -4,7 +4,12 @@ import gestorAplicacion.personas.*;
 
 import uiMain.Main;
 import uiMain.OpcionesMenu;
+
 public class CambEst extends OpcionesMenu {
+	public CambEst(String key) {
+		super(key);
+	}
+
 	@Override
 	public void ejecutar() {
 		System.out.println("1) Estado Disponible");

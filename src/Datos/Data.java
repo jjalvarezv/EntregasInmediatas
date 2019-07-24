@@ -204,6 +204,7 @@ public class Data {
 			System.out.print("Error al cargar domiciliarios\n");
         }
 	}
+	
 	private static void CargarPropetarioRestaurante(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"propietarioRestaurante.txt");
