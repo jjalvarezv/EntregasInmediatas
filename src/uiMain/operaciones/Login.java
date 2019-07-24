@@ -15,7 +15,7 @@ public class Login extends OpcionesMenu {
 		
 		System.out.println(UsuarioRegistrado.login(userName, pass));
 		
-		lectura.close();
+		//lectura.close();
 	}
 	 public String toString() {
 		 return "Iniciar Sesion";

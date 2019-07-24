@@ -61,6 +61,7 @@ public class MenuConsola {
 		int opt = leer.nextInt();
 		System.out.println((opt-1));
 		options.get((opt-1)).ejecutar();
+		//leer.close();
 		
 	}
 	

@@ -17,6 +17,7 @@ public class Main {
 				if(Main.user != null) {
 					Main.user.getMenu().lanzarMenu();
 				}else {
+					
 					Main.menuGuestUser.lanzarMenu();
 				}
 			
@@ -27,7 +28,8 @@ public class Main {
 				//Al terminar el programa ejecutara el guardado
 				Data.saveData();
 				
-				System.out.println("Adios"+e.getMessage());
+				System.out.println(" Adios "+ e);
+				e.printStackTrace();
 				System.exit(0);
 			}
 		}
