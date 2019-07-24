@@ -164,8 +164,17 @@ public class Pedido {
 		
 	}
 	
-	public ArrayList<Item> getProductos() {
-		return this.productos;
+	public String getProductos() {
+			for(Item it : productos){
+				return it.getProducto().getNombreProducto();
+			}
+			return "";
+
+		
+	}
+	
+	public int getCantProdPedido() {
+		return productos.size();
 	}
 	
 	public String getCedulaCliente() {
