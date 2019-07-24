@@ -22,7 +22,10 @@ public class Cliente extends UsuarioRegistrado{
 		super(userName, pass, nombre, cc);
 		this.direccion = direccion;		
 	}
-
+	
+	public void setDireccion(String dir) {
+		this.direccion = dir;
+	}
 	
 	public String getDireccion() {
 		return this.direccion;

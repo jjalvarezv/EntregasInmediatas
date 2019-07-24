@@ -84,13 +84,14 @@ public abstract class UsuarioRegistrado {
 		return cedula;
 	}
 	
-	public static String newCliente(String username, String password, String name, Long cc){
+	public static String newCliente(String username, String password, String name, Long cc, String direccion){
 		Cliente user = new Cliente();// ya si la puedo hace ggg....NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
 		//Validaciones de cada parametro
 		user.setNom(name);
 		user.setUsername(username);
 		user.setCedula(cc);
 		user.setPassword(password);
+		user.setDireccion(direccion);
 		
 		//Menu por defecto al crear un nuevo usuario
 		String [] operations = {"5","6"};
