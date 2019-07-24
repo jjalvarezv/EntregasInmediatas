@@ -17,7 +17,9 @@ public class SignUp extends OpcionesMenu{
 		String password = leer.next();
 		System.out.print("Ingrese numero de identificacion ");
 		Long cc = leer.nextLong();
-		UsuarioRegistrado.newCliente(username, password, name, cc);
+		System.out.print("Ingrese la direccion ");
+		String dir = leer.next();
+		UsuarioRegistrado.newCliente(username, password, name, cc, dir);
 	}
 
 	@Override
