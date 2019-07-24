@@ -34,4 +34,7 @@ public class Producto {
 	public String getId() {
 		return this.id_prod;
 	}
+	public String toString() {
+		return  getNombreProducto()+ "  "+ "Precio: "+ getValorUnidad();
+	}
 }

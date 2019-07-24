@@ -2,9 +2,11 @@ package gestorAplicacion.gestion;
 import gestorAplicacion.personas.PropietarioRestaurante;
 import gestorAplicacion.personas.CalcularGanancias;
 import java.util.*;
+import Datos.Data;
 
 public class Restaurante implements CalcularGanancias{
-
+	
+    private String nombre;
 	private int codigo;
 	private String direccion;
 	//private PropietarioRestaurante propietario;
@@ -12,11 +14,14 @@ public class Restaurante implements CalcularGanancias{
 	private ArrayList<Producto> Carta;
 	//public Restaurante palitos= new Restaurante(1234, "calle 98 #30-20", propietario.jorge, (long)4452347);
 	
-	public Restaurante(int cod, String direcc, long cedulaPropietario, long tel) {
+	public Restaurante(String nombre, int cod, String direcc, long cedulaPropietario, long tel) {
+		this.nombre = nombre;
 		this.codigo= cod;
 		this.direccion= direcc;
 		this.cedulaPropietario= cedulaPropietario;
 		this.telefono= tel;
+		Data.restaurantes.put(Integer.toString(cod), this);
+
 	}
 	public Restaurante(int cod, String direcc, long tel){
 		this.codigo= cod;
@@ -48,6 +53,12 @@ public class Restaurante implements CalcularGanancias{
 	 public int  getCodigo() {
 		 return this.codigo;		 
 	 }
+	 public String getNombre() {
+		 return this.nombre;
+	 }
+	 public void setNombre(String nombre) {
+		 this.nombre= nombre;
+	 }
 	 public String getDireccion() {
 		 return this.direccion;
 	 } 
@@ -61,11 +72,15 @@ public class Restaurante implements CalcularGanancias{
 			 
 	 }
 	
+	
 	 public long getTelefono() {
 		 return this.telefono;
 	 }
 	 public ArrayList<Producto> getCarta(){
 		 return this.Carta;
+	 }
+	 public String toString() {
+		 return getNombre()+ "  " + getCodigo();
 	 }
 	 
 	
