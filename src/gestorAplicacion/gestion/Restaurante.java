@@ -18,6 +18,9 @@ public class Restaurante implements CalcularGanancias{
 		this.propietario= prop;
 		this.telefono= tel;
 	}
+	public Restaurante(int cod, String direcc, long tel){
+		this(cod, direcc,null,tel);
+	}
 	public void agregarProducto(Producto producto) {
 		Carta.add(producto);
 	}

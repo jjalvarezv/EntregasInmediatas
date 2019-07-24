@@ -57,6 +57,7 @@ public class Main {
 			{
 				add(new Login());
 				add(new SignUp());
+				add(new BusRest());
 			}
 		};
 		Main.menuGuestUser = new MenuConsola(guestOptions);
