@@ -28,7 +28,14 @@ public class EntPed extends OpcionesMenu {
 			if (pedido.getUserDomiciliario() == Main.user.getUsername() && pedido.getEstado() == Pedido.ESTADO_PENDIENTE ) {
 				
 				Data.pedidos.get(key).setEstado( Pedido.ESTADO_PAGADO);
-				System.out.println("Has entregado el pedido a "+ pedido.getCedulaCliente());
+				HashMap <String, Cliente> clientes = Data.clientes;
+				for (String key1: clientes.keySet()) {
+					Cliente cliente=  clientes.get(key1);
+					if( Long.toString(cliente.getCedula()) == pedido.getCedulaCliente()) {
+						System.out.println("Has entregado el pedido a "+ cliente.getUsername());
+					}
+				}
+				
 
 			}
 		}
