@@ -42,22 +42,6 @@ public class Data {
 		GuardarPedidos(ruta);
 	}
 	
-	
-	private static void GuardarClientes(String ruta) {
-		try {
-			PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); 
-			for (Map.Entry<String, Cliente> cl:clientes.entrySet()) {
-				Cliente userC = cl.getValue();
-				writer.print(userC.getUsername()+";"+userC.getPassword()+";"+userC.getNom()+";"+userC.getCedula());
-				
-			}
-			writer.close();
-		}catch (IOException e){
-			System.out.print("Error al guardar clientes");
-		}
-	}
-	
-	
 	private static void GuardarPedidos(String ruta) {
 		try {
 			PrintWriter writer = new PrintWriter(ruta+"pedidos.txt"); 
@@ -146,7 +130,6 @@ public class Data {
 	//Este metodo guarda los restaurantes en el txt restaurantes.txt
 	private static void GuardarRestaurantes(String ruta){
 		try {
-			System.out.print("Entra a Guardar Restaurantes  ......");
             FileWriter fw = new FileWriter(ruta+"restaurantes.txt");
             PrintWriter pw = new PrintWriter(fw);
     		for (Map.Entry<String, Restaurante> rest : restaurantes.entrySet()) {
@@ -155,7 +138,6 @@ public class Data {
     			pw.println(line);
     			//Correccion por el ; extra
     		}
-    		System.out.print("Sale a Guardar Restaurantes ...... ");
             pw.close();
             
         } catch (IOException ioObj) {

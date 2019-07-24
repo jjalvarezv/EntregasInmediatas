@@ -28,8 +28,7 @@ public class Main {
 				//Al terminar el programa ejecutara el guardado
 				Data.saveData();
 				
-				System.out.println(" Adios "+ e);
-				e.printStackTrace();
+				System.out.println(" Suerte, te esperamos gg ");
 				System.exit(0);
 			}
 		}
