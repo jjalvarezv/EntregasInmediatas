@@ -1,7 +1,7 @@
 package gestorAplicacion.gestion;
 
 public class Item {
-	private int costo, cantidad, total;	
+	private int cantidad, total;	
 	private Producto producto;
 	
 	
@@ -20,9 +20,6 @@ public class Item {
 		return producto.getTiempoDePreparacion();
 	}
 
-	public int getCosto() {
-		return this.costo;
-	}
 	public int getCantidad() {
 		return this.cantidad;
 	}
