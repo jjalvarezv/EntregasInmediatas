@@ -12,6 +12,7 @@ public class PropietarioRestaurante extends UsuarioRegistrado{
 		this.codigoRestaurante= CodRest;
 		
 	}
+	public PropietarioRestaurante() {}
 	
 	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc) {
 		super(userName, pass, nombre, cc);

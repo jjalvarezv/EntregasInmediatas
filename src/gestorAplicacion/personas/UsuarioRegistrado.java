@@ -84,7 +84,7 @@ public abstract class UsuarioRegistrado {
 		return cedula;
 	}
 	
-	public static String newUser(String username, String password, String name, Long cc){
+	public static String newCliente(String username, String password, String name, Long cc){
 		Cliente user = new Cliente();// ya si la puedo hace ggg....NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
 		//Validaciones de cada parametro
 		user.setNom(name);
@@ -103,4 +103,34 @@ public abstract class UsuarioRegistrado {
 		}
 	}
 	
+	public static String newDomiciliario(String username, String password, String nombre, Long cc) {
+		Domiciliario dom = new Domiciliario();
+		if (Data.usuariosRegistrados.get(username) == null) {
+			dom.setUsername(username);
+			dom.setPassword(password);
+			dom.setNom(nombre);
+			dom.setCedula(cc);
+			String [] operations = {"5","7","8"};
+			MenuConsola.newMenu(dom, operations);
+			return "Ha sido creado";
+		}
+		else {
+			return "No ha sido creado";
+		}
+	}
+	public static String newPropietario(String username, String password, String nombre, Long cc) {
+		PropietarioRestaurante prop = new PropietarioRestaurante();
+		if (Data.usuariosRegistrados.get(username) == null) {
+			prop.setUsername(username);
+			prop.setPassword(password);
+			prop.setNom(nombre);
+			prop.setCedula(cc);
+			String [] operations = {"5"};
+			MenuConsola.newMenu(prop, operations);
+			return "Ha sido creado";
+		}
+		else {
+			return "No ha sido creado";
+		}
+	}
 }

@@ -42,9 +42,13 @@ public class Main {
 		Data.operaciones.put("3", new DelOpt("3"));
 		Data.operaciones.put("4", new NewAdmin("4"));
 		
-		//Operaciones de mis usuarios
+		//Operaciones de mis usuarios/clientes
 		Data.operaciones.put("5", new SignOut("5"));
 		Data.operaciones.put("6", new BusRest("6"));
+		
+		//Operaciones de los domiciliarios
+		Data.operaciones.put("7", new EntPed("7"));
+		Data.operaciones.put("8", new CambEst("8"));
 		
 		//Cargar los datos
 		Data.CargarData();
