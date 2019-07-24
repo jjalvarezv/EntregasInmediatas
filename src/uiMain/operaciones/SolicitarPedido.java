@@ -15,20 +15,46 @@ public class SolicitarPedido extends OpcionesMenu {
 	@Override
 	public void ejecutar() {
 		// TODO Auto-generated method stub
+		
 		Pedido miPedido= new Pedido();
 		ArrayList<Item> itemsProductos = new ArrayList<Item>();
 		System.out.println("Arma tu pedido: ");
+		//Data.operaciones.get("6").ejecutar();
+		System.out.println(" Elige el restaurante");
+		for (String key : Data.restaurantes.keySet() ) {
+			System.out.println(Data.restaurantes.get(key).toString());
+			System.out.println();
+		}
+		Scanner leerRestaurante = new Scanner(System.in);
+		System.out.println("Escoger codigo Restaurante: ");
+		String lect = leerRestaurante.next();
+		Restaurante rest = Data.restaurantes.get(lect);
 		System.out.println("1) Agregar Productos");
-		System.out.println("2) Confirmar Pedido");		
-		Scanner leer = new Scanner(System.in);		
-		int a = leer.nextInt();		
-		UsuarioRegistrado cliente = Main.user;
-		if(a==1) {
+		System.out.println("2) Confirmar Pedido");	
+		Scanner leerOpcion = new Scanner(System.in);		
+		int a = leerOpcion.nextInt();		
+		UsuarioRegistrado cliente = Main.user;	
+		
+		while(a!= 2) {
+				System.out.println("Mira nuestra oferta de Productos");
+				for(int x=0;x<rest.getCarta().size();x++) {
+					  System.out.println(rest.getCarta().get(x).toString());
+					}			
+					System.out.println("Elige un producto");
+					Scanner leerProducto = new Scanner (System.in);
+					String nombreProducto =leerProducto.next();
+					//if()
+				
+				System.out.println("1) Agregar Productos");
+				System.out.println("2) Confirmar Pedido");	
+				
+			}
+				
+		
 			
-		}
-		if (cliente instanceof Cliente) {
-			//gestorAplicacion.gestion.Pedido(cliente.getCedula(),)
-		}
+			
+		
+		
 	}
 
 	@Override

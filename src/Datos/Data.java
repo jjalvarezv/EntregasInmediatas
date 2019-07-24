@@ -93,7 +93,11 @@ public class Data {
             pwPro.close();
             
         } catch (IOException ioObj) {
-        	System.out.print("Ocurrio algo al guardar en txt los datos   "+ioObj);
+
+        	System.out.print("Ocurrio algo al guardar en txt los datos    "+ioObj);
+
+        	
+
         }
 	}
 	
@@ -160,6 +164,8 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
+            		String [] operations = {"5","9","10","11"};
+        			MenuConsola.newMenu(admin, operations);
             		Data.admins.put(username,admin);
             		Data.usuariosRegistrados.put(username, admin);
             	}
@@ -186,6 +192,8 @@ public class Data {
             		String cc = user[3];
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
+            		String [] operations = {"5","6"};
+        			MenuConsola.newMenu(cliente, operations);
             		Data.clientes.put(username,cliente);
             		Data.usuariosRegistrados.put(username, cliente);
             	}
@@ -240,6 +248,8 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
+            		String [] operations = {"5"};
+        			MenuConsola.newMenu(pr, operations);
             		Data.propietarios.put(username,pr); 
             		Data.usuariosRegistrados.put(username, pr);
             		}

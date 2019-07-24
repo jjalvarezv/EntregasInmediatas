@@ -5,6 +5,9 @@ import java.util.Scanner;
 import gestorAplicacion.personas.UsuarioRegistrado;
 
 public class NewDom extends OpcionesMenu {
+	public NewDom(String key) {
+		super(key);
+	}
 	@Override
 	public void ejecutar() {
 		Scanner leer = new Scanner(System.in);

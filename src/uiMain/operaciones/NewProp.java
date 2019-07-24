@@ -5,6 +5,9 @@ import gestorAplicacion.personas.UsuarioRegistrado;
 import uiMain.OpcionesMenu;
 
 public class NewProp extends OpcionesMenu {
+	public NewProp(String key) {
+		super(key);
+	}
 	public void ejecutar() {
 		Scanner leer = new Scanner(System.in);
 		System.out.print("Ingrese nombre del Propietario: ");
