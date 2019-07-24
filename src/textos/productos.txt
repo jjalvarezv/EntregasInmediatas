@@ -1,1 +1,8 @@
 01;1;Baratisimo;5000;20
+02;1;Sandwich De Carnes;6000;20
+03;1;Sandwich Atun;6500;15
+04;1;Sandwich vegetariano;5000;21
+01;2;Palitos de queso;3000;10
+02;2;Palitos de guayaba;2500;12
+03;2;Palitos de arequipe;2700;14
+04;2;Palitos de carne;3300;15
