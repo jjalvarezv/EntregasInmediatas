@@ -40,6 +40,22 @@ public class Data {
 		GuardarRestaurantes(ruta);
 	}
 	
+	
+	private static void GuardarClientes(String ruta) {
+		try {
+			PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); 
+			for (Map.Entry<String, Cliente> cl:clientes.entrySet()) {
+				Cliente userC = cl.getValue();
+				writer.print(userC.getUsername()+";"+userC.getPassword()+";"+userC.getNom()+";"+userC.getCedula());
+				
+			}
+			writer.close();
+		}catch (IOException e){
+			System.out.print("Error al guardar clientes");
+		}
+	}
+	
+	
 	//este metodo es para guardar los usuarios de cualquier tipo en el txt
 	private static void GuardarUsuarios(String ruta){
 		try {
