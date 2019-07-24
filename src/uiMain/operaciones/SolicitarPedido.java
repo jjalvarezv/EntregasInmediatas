@@ -39,13 +39,12 @@ public class SolicitarPedido extends OpcionesMenu {
 				System.out.println("Mira nuestra oferta de Productos");
 				for(int x=0;x<rest.getCarta().size();x++) {
 					  System.out.println(rest.getCarta().get(x).toString());
-					}
-				if (cliente instanceof Cliente) {
+					}			
 					System.out.println("Elige un producto");
 					Scanner leerProducto = new Scanner (System.in);
 					String nombreProducto =leerProducto.next();
-					System.out.println("Elige las unidades de este producto");
-				}
+					//if()
+				
 				System.out.println("1) Agregar Productos");
 				System.out.println("2) Confirmar Pedido");	
 				
