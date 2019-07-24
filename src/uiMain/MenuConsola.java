@@ -59,6 +59,7 @@ public class MenuConsola {
 		
 		System.out.print("Ingrese la opcion: ");
 		int opt = leer.nextInt();
+		System.out.println((opt-1));
 		options.get((opt-1)).ejecutar();
 		
 	}

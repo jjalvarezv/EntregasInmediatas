@@ -34,9 +34,23 @@ public class Data {
 	//Guardar los datos para cerrar el proyecto
 	public static void saveData() {
 		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
 		GuardarUsuarios(ruta);
 		GuardarMenus(ruta);
+	}
+	
+	private static void GuardarClientes(String ruta) {
+		try {
+			PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); 
+			for (Map.Entry<String, Cliente> cl:clientes.entrySet()) {
+				Cliente userC = cl.getValue();
+				writer.print(userC.getUsername()+";"+userC.getPassword()+";"+userC.getNom()+";"+userC.getCedula());
+				
+			}
+			writer.close();
+		}catch (IOException e){
+			System.out.print("Error al guardar clientes");
+		}
 	}
 	
 	//este metodo es para guardar los usuarios de cualquier tipo en el txt
@@ -51,12 +65,14 @@ public class Data {
             PrintWriter pwAd = new PrintWriter(fwAd);
             PrintWriter pwDom = new PrintWriter(fwDom);
             PrintWriter pwPro = new PrintWriter(fwPro);
-    		for (Map.Entry<String, UsuarioRegistrado> user : usuariosRegistrados.entrySet()) {
+            
+    		for (Map.Entry<String, UsuarioRegistrado> user : Data.usuariosRegistrados.entrySet()) {
     			UsuarioRegistrado userObj = user.getValue();
-    			String line = userObj.getUsername()+";";
-    			line += userObj.getPassword()+";";
+    			String line = userObj.getUsername()+";"+userObj.getPassword()+";"+userObj.getNom()+";"+userObj.getCedula();
+    			/*line += userObj.getPassword()+";";
     			line += userObj.getNom()+";";
-    			line += userObj.getCedula();
+    			line += userObj.getCedula();*/
+    			
     			if(userObj instanceof Admin) {
     				pwAd.println(line);
 				}
@@ -76,7 +92,7 @@ public class Data {
             pwPro.close();
             
         } catch (IOException ioObj) {
-        	System.out.print("Ocurrio algo al guardar en txt los datos");
+        	System.out.print("Ocurrio algo al guardar en txt los datos    "+ioObj);
         }
 	}
 	
