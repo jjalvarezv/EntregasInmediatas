@@ -9,14 +9,22 @@ import gestorAplicacion.gestion.Restaurante;
 
 public class BusRest extends OpcionesMenu {
 	
+	public BusRest() {
+		
+	}
 	public BusRest(String key) {
 		super(key);
 	}
 
 	@Override
-	public void ejecutar() {
+	public void ejecutar(){
+		int a = 1;
+		for (String key : Data.restaurantes.keySet() ) {
+			System.out.println(a + ") " + Data.restaurantes.get(key).toString());
+			System.out.println();
+		}
 		Scanner leer = new Scanner(System.in);
-		System.out.println("Ingrese nombre del Restaurante: ");
+		System.out.println("Escoger Restaurante: ");
 		String lect = leer.next();
 		Restaurante rest = Data.restaurantes.get(lect);
 		if (rest != null) {

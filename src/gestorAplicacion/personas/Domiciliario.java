@@ -1,5 +1,6 @@
 package gestorAplicacion.personas;
 import gestorAplicacion.gestion.Item;
+import gestorAplicacion.gestion.Pedido;
 
 public class Domiciliario extends UsuarioRegistrado implements CalcularGanancias{
 	private gestorAplicacion.gestion.Pedido pedido;
@@ -43,6 +44,10 @@ public class Domiciliario extends UsuarioRegistrado implements CalcularGanancias
 	
 	public int getEstado() {
 		return this.estado;
+	}
+	
+	public Pedido getPedido() {
+		return this.pedido;
 	}
 	
 	public void ToString() {

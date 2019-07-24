@@ -1,4 +1,4 @@
-package uiMain;
+ package uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -48,7 +48,6 @@ public class MenuConsola {
 	public void lanzarMenu(){
 		Scanner leer = new Scanner(System.in);
 		
-		System.out.println();
 		int i = 1;
 		for (OpcionesMenu option : options) {
 			

@@ -31,12 +31,12 @@ public class Data {
 	// hashmap de los pedidos que hay
 	public static HashMap<String, Pedido> pedidos = new HashMap<String, Pedido>();
 	
-	
+	//Guardar los datos para cerrar el proyecto
 	public static void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		//GuardarUsuarios(ruta);
-		//saveMenus(ruta);
+		GuardarUsuarios(ruta);
+		GuardarMenus(ruta);
 	}
 	
 	//este metodo es para guardar los usuarios de cualquier tipo en el txt
@@ -59,7 +59,6 @@ public class Data {
     			line += userObj.getCedula();
     			if(userObj instanceof Admin) {
     				pwAd.println(line);
-					
 				}
     			else if(userObj instanceof Domiciliario) {
 					pwDom.println(line);
@@ -77,16 +76,17 @@ public class Data {
             pwPro.close();
             
         } catch (IOException ioObj) {
-        	//Ocurrio algo al guardar en txt los datos
+        	System.out.print("Ocurrio algo al guardar en txt los datos");
         }
 	}
 	
-	private static void saveMenus(String ruta){
+	//Este metodo guarda lo menus de cada usuario, muestra los numeros de cada opcion de menu separando todo con ;
+	private static void GuardarMenus(String ruta){
 		try {
-            FileWriter fw = new FileWriter(ruta+"usersMenus.txt");
+            FileWriter fw = new FileWriter(ruta+"MenusDeUsuarios.txt");
             PrintWriter pw = new PrintWriter(fw);
-    		for (Map.Entry<String, MenuDeConsola> menu : menus.entrySet()) {
-    			MenuDeConsola menuObj = menu.getValue();
+    		for (Map.Entry<String, MenuConsola> menu : menus.entrySet()) {
+    			MenuConsola menuObj = menu.getValue();
     			String line = menuObj.getUser().getUsername()+";";
     			for (String  opt : menuObj.getOperations()) {
     				line += opt+";";
@@ -94,10 +94,11 @@ public class Data {
     			//Correccion por el ; extra
     			pw.println(line.substring(0,(line.length()-1)));
     		}
+    		
             pw.close();
             
         } catch (IOException ioObj) {
-        	//Ocurrio algo al guardar en txt los datos
+        	System.out.print("Ocurrio algo al guardar en txt los datos");
         }
 	}
 	
@@ -112,21 +113,21 @@ public class Data {
 	
 	private static void loadMenus(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"usersMenus.txt");
+            FileReader fr = new FileReader(ruta+"MenusDeUsuarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
             		String [] menu = line.split(";");
-            		User user = User.getUserByUsername(menu[0]);
-            		//slice de arrays
+            		UsuarioRegistrado user = UsuarioRegistrado.getUserByUsername(menu[0]);
+            		
             		String[] operations = Arrays.copyOfRange(menu, 1, menu.length);
-            		MenuDeConsola.newMenu(user, operations);
+            		MenuConsola.newMenu(user, operations);
             	}
             }
             br.close();			
         }catch(Exception e){
-        	//Error al leer
+        	System.out.print("Error al leer");
         }
 	}
 	private static void CargarAdmin(String ruta) {
@@ -143,9 +144,11 @@ public class Data {
             		String cc = user[3];
             		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
             		Data.admins.put(username,admin);
+            		Data.usuariosRegistrados.put(username, admin);
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"admin.txt"); writer.print(""); writer.close(); 
 		}catch(IndexOutOfBoundsException e) {
 			System.out.print("Error de numberformatException\n");
         }catch(Exception e){
@@ -167,9 +170,11 @@ public class Data {
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
             		Data.clientes.put(username,cliente);
+            		Data.usuariosRegistrados.put(username, cliente);
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
 			System.out.print("Error al cargar clientes\n");
@@ -189,9 +194,11 @@ public class Data {
             		String cc = user[3];
             		Domiciliario dom = new Domiciliario(username, password, name, Long.parseLong(cc));
             		Data.domiciliarios.put(username,dom);
+            		Data.usuariosRegistrados.put(username, dom);
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"domiciliarios.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
 			System.out.print("Error al cargar domiciliarios\n");
@@ -211,9 +218,11 @@ public class Data {
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
             		Data.propietarios.put(username,pr); 
+            		Data.usuariosRegistrados.put(username, pr);
             		}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
 		}catch(NumberFormatException e) {
 			System.out.print("Error de numberformatException\n");
 		}catch(IndexOutOfBoundsException e) {
@@ -231,10 +240,11 @@ public class Data {
 	        directory.mkdir();
 	    }
 		File usuariosRegistradosFile = new File(ruta+"clientes.txt");
-		File usuariosAdminFile = new File(ruta+"admins.txt");
-		File usuariosMenus = new File(ruta+"usersMenus.txt");
+		File usuariosAdminFile = new File(ruta+"admin.txt");
+		File usuariosMenus = new File(ruta+"MenusDeUsuarios.txt");
 		usuariosRegistradosFile.createNewFile();
 		usuariosAdminFile.createNewFile();
+		usuariosMenus.createNewFile();
 		}
 		catch(IOException e){
 			//Ocurrio algo al crear las carpetas y los archivos

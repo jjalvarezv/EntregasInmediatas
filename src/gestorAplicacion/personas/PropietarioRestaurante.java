@@ -1,30 +1,32 @@
 package gestorAplicacion.personas;
-import Datos.Data;
+
 import gestorAplicacion.gestion.Producto;
 
 public class PropietarioRestaurante extends UsuarioRegistrado{
-	private gestorAplicacion.gestion.Restaurante restaurante;
-	public PropietarioRestaurante jorge = new PropietarioRestaurante("rey_jorge", "xyz_rey", "Jorge Mario Paz", (long) 300250, restaurante.palitos);
+	//private gestorAplicacion.gestion.Restaurante restaurante;
+	private int codigoRestaurante; 
+	//public PropietarioRestaurante jorge = new PropietarioRestaurante("rey_jorge", "xyz_rey", "Jorge Mario Paz", (long) 300250, restaurante.palitos);
 	
-	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc, gestorAplicacion.gestion.Restaurante rest) {
+	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc, int CodRest) {
 		super(userName, pass, nombre, cc);
-		restaurante = rest;
+		this.codigoRestaurante= CodRest;
+		
 	}
 	
 	public PropietarioRestaurante(String userName, String pass, String nombre, Long cc) {
 		super(userName, pass, nombre, cc);
-		this.restaurante = restaurante.palitos;
+		this.codigoRestaurante = (Integer) null;
 		
 	}
 	
-	public void agregarProductos(Producto producto) {
-		Data.productos.put(producto.getId(), producto);
+	/*public void agregarProductos(Producto producto) {
+		//Data.productos.put(producto.getId(), producto);
 	}
 	
 	public void eliminarProductos() {
 	
 	}
-	
+	*/
 	public void logout() {
 		
 	}
