@@ -1,5 +1,11 @@
 package uiMain.operaciones;
 import uiMain.Main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import Datos.Data;
+import gestorAplicacion.gestion.Pedido;
 import gestorAplicacion.personas.*;
 import uiMain.OpcionesMenu;
 
@@ -10,9 +16,23 @@ public class EntPed extends OpcionesMenu {
 	}
 	
 	public void ejecutar() {
-		((Domiciliario)Main.user).getPedido().setEstado(2);
-		((Domiciliario)Main.user).cambiarEstado(0);
-		System.out.println("Has entregado el pedido a "+ ((Domiciliario)Main.user).getPedido().getCedulaCliente());
+		
+		
+		((Domiciliario)Main.user).cambiarEstado(Domiciliario.ESTADO_DISPONIBLE);
+		
+		HashMap<String, Pedido> pedidos  = Data.pedidos;
+		
+		for (String key : pedidos.keySet()) {
+			Pedido pedido =   pedidos.get(key);
+			
+			if (pedido.getUserDomiciliario() == Main.user.getUsername() && pedido.getEstado() == Pedido.ESTADO_PENDIENTE ) {
+				
+				Data.pedidos.get(key).setEstado( Pedido.ESTADO_PAGADO);
+				System.out.println("Has entregado el pedido a "+ pedido.getCedulaCliente());
+
+			}
+		}
+
 	}
 	
 	public String toString() {
