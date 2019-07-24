@@ -22,6 +22,7 @@ public class BusRest extends OpcionesMenu {
 		for (String key : Data.restaurantes.keySet() ) {
 			System.out.println(a + ") " + Data.restaurantes.get(key).toString());
 			System.out.println();
+			a++;
 		}
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Escoger Restaurante: ");

@@ -73,7 +73,7 @@ public class Restaurante implements CalcularGanancias{
 		 return this.Carta;
 	 }
 	 public String toString() {
-		 return getNombre()+ "  " + getCodigo();
+		 return getNombre();
 	 }
 	 
 	
