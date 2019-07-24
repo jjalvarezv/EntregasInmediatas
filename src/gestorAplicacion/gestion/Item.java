@@ -10,18 +10,16 @@ public class Item {
 	public Item() {
 		
 	}
-	public Item( int cantidad, Producto prod, int total) {
+	public Item( int cantidad, Producto prod) {
 		
 		this.cantidad= cantidad;
 		this.producto= prod;
-		this.total= total;
+		this.total= cantidad*prod.getValorUnidad();
 	}
 	public int  getTiempo() {
 		return producto.getTiempoDePreparacion();
 	}
-	public void  calcularTotal() {
-		costo= cantidad* producto.getValorUnidad(); // el costo es la cantidad de productos, por el precio de cada uno
-	}
+
 	public int getCosto() {
 		return this.costo;
 	}

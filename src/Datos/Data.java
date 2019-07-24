@@ -31,11 +31,11 @@ public class Data {
 	// hashmap de los pedidos que hay
 	public static HashMap<String, Pedido> pedidos = new HashMap<String, Pedido>();
 	
-	
+	//Guardar los datos para cerrar el proyecto
 	public static void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		//GuardarUsuarios(ruta);
+		GuardarUsuarios(ruta);
 		//saveMenus(ruta);
 	}
 	
@@ -59,7 +59,6 @@ public class Data {
     			line += userObj.getCedula();
     			if(userObj instanceof Admin) {
     				pwAd.println(line);
-					
 				}
     			else if(userObj instanceof Domiciliario) {
 					pwDom.println(line);
@@ -77,16 +76,16 @@ public class Data {
             pwPro.close();
             
         } catch (IOException ioObj) {
-        	//Ocurrio algo al guardar en txt los datos
+        	System.out.print("Ocurrio algo al guardar en txt los datos");
         }
 	}
 	
 	private static void saveMenus(String ruta){
 		try {
-            FileWriter fw = new FileWriter(ruta+"usersMenus.txt");
+            FileWriter fw = new FileWriter(ruta+"MenusDeUsuarios.txt");
             PrintWriter pw = new PrintWriter(fw);
-    		for (Map.Entry<String, MenuDeConsola> menu : menus.entrySet()) {
-    			MenuDeConsola menuObj = menu.getValue();
+    		for (Map.Entry<String, MenuConsola> menu : menus.entrySet()) {
+    			MenuConsola menuObj = menu.getValue();
     			String line = menuObj.getUser().getUsername()+";";
     			for (String  opt : menuObj.getOperations()) {
     				line += opt+";";
@@ -94,6 +93,7 @@ public class Data {
     			//Correccion por el ; extra
     			pw.println(line.substring(0,(line.length()-1)));
     		}
+    		
             pw.close();
             
         } catch (IOException ioObj) {
@@ -147,6 +147,7 @@ public class Data {
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"admin.txt"); writer.print(""); writer.close(); 
 		}catch(IndexOutOfBoundsException e) {
 			System.out.print("Error de numberformatException\n");
         }catch(Exception e){
@@ -172,6 +173,7 @@ public class Data {
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
 			System.out.print("Error al cargar clientes\n");
@@ -195,6 +197,7 @@ public class Data {
             	}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"domiciliarios.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
 			System.out.print("Error al cargar domiciliarios\n");
@@ -218,6 +221,7 @@ public class Data {
             		}
             }
             br.close();
+            PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
 		}catch(NumberFormatException e) {
 			System.out.print("Error de numberformatException\n");
 		}catch(IndexOutOfBoundsException e) {
@@ -235,8 +239,8 @@ public class Data {
 	        directory.mkdir();
 	    }
 		File usuariosRegistradosFile = new File(ruta+"clientes.txt");
-		File usuariosAdminFile = new File(ruta+"admins.txt");
-		File usuariosMenus = new File(ruta+"usersmenus.txt");
+		File usuariosAdminFile = new File(ruta+"admin.txt");
+		File usuariosMenus = new File(ruta+"MenusDeUsuarios.txt");
 		usuariosRegistradosFile.createNewFile();
 		usuariosAdminFile.createNewFile();
 		}
