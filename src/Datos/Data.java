@@ -36,7 +36,7 @@ public class Data {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		GuardarUsuarios(ruta);
-		//saveMenus(ruta);
+		GuardarMenus(ruta);
 	}
 	
 	//este metodo es para guardar los usuarios de cualquier tipo en el txt
@@ -80,7 +80,8 @@ public class Data {
         }
 	}
 	
-	private static void saveMenus(String ruta){
+	//Este metodo guarda lo menus de cada usuario, muestra los numeros de cada opcion de menu separando todo con ;
+	private static void GuardarMenus(String ruta){
 		try {
             FileWriter fw = new FileWriter(ruta+"MenusDeUsuarios.txt");
             PrintWriter pw = new PrintWriter(fw);
@@ -97,7 +98,7 @@ public class Data {
             pw.close();
             
         } catch (IOException ioObj) {
-        	//Ocurrio algo al guardar en txt los datos
+        	System.out.print("Ocurrio algo al guardar en txt los datos");
         }
 	}
 	
@@ -112,21 +113,21 @@ public class Data {
 	
 	private static void loadMenus(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"usersMenus.txt");
+            FileReader fr = new FileReader(ruta+"MenusDeUsuarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
             		String [] menu = line.split(";");
-            		User user = User.getUserByUsername(menu[0]);
-            		//slice de arrays
+            		UsuarioRegistrado user = UsuarioRegistrado.getUserByUsername(menu[0]);
+            		
             		String[] operations = Arrays.copyOfRange(menu, 1, menu.length);
-            		MenuDeConsola.newMenu(user, operations);
+            		MenuConsola.newMenu(user, operations);
             	}
             }
             br.close();			
         }catch(Exception e){
-        	//Error al leer
+        	System.out.print("Error al leer");
         }
 	}
 	private static void CargarAdmin(String ruta) {
@@ -243,6 +244,7 @@ public class Data {
 		File usuariosMenus = new File(ruta+"MenusDeUsuarios.txt");
 		usuariosRegistradosFile.createNewFile();
 		usuariosAdminFile.createNewFile();
+		usuariosMenus.createNewFile();
 		}
 		catch(IOException e){
 			//Ocurrio algo al crear las carpetas y los archivos
