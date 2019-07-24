@@ -126,7 +126,7 @@ public abstract class UsuarioRegistrado {
 			prop.setPassword(password);
 			prop.setNom(nombre);
 			prop.setCedula(cc);
-			String [] operations = {"5"};
+			String [] operations = {"5","13","14"};
 			MenuConsola.newMenu(prop, operations);
 			return "Ha sido creado";
 		}

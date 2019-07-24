@@ -54,6 +54,10 @@ public class Main {
 		Data.operaciones.put("9", new NewDom("9"));
 		Data.operaciones.put("10", new NewProp("10"));
 		Data.operaciones.put("11", new NewAdmin("11"));
+		
+		Data.operaciones.put("13", new AddProducto("13"));
+		Data.operaciones.put("14", new RemoveProd("14"));
+		
 
 		
 		//Cargar los datos

@@ -254,7 +254,7 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
-            		String [] operations = {"5"};
+            		String [] operations = {"5","13","14"};
         			MenuConsola.newMenu(pr, operations);
             		Data.propietarios.put(username,pr); 
             		Data.usuariosRegistrados.put(username, pr);
