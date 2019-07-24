@@ -63,6 +63,7 @@ public class SolicitarPedido extends OpcionesMenu {
 				System.out.println("Tu pedido ha sido asignado \n" );
 				System.out.println("El domiciliario encargado es: " + miPedido.getUserDomiciliario());
 				System.out.println("\n Tu pedido tendrá un costo de : "+ miPedido.calcularCostoPedido());
+				System.out.println("\n Tu pedido se demorará:  "+ miPedido.getTiempoDeEntrega());
 			}
 			
 		

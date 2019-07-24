@@ -11,6 +11,8 @@ public class EntPed extends OpcionesMenu {
 	
 	public void ejecutar() {
 		((Domiciliario)Main.user).getPedido().setEstado(2);
+		((Domiciliario)Main.user).cambiarEstado(0);
+		System.out.println("Has entregado el pedido a "+ ((Domiciliario)Main.user).getPedido().getCedulaCliente());
 	}
 	
 	public String toString() {

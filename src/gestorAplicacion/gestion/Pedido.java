@@ -194,13 +194,13 @@ public class Pedido {
 	 }
 	 public int calcularCostoPedido() {
 		 int costo=0;
-		 double adicion = 0;
+		
 		 for (int i=0;i<this.productos.size();i++ ) {
 			costo= costo+ productos.get(i).getTotal();
 			 
 		 }
-		 adicion=this.productos.size()/3;
-		 return 5000+costo+ (((int) adicion)-1)*2000;
+		
+		 return 5000+costo;
 	 }
 	 
 	
