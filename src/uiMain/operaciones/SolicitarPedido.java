@@ -12,6 +12,10 @@ import gestorAplicacion.personas.UsuarioRegistrado;
 
 public class SolicitarPedido extends OpcionesMenu {
 
+	public SolicitarPedido(String key) {
+		super(key);
+	}
+
 	@Override
 	public void ejecutar() {
 		// TODO Auto-generated method stub
