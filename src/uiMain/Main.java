@@ -50,6 +50,11 @@ public class Main {
 		Data.operaciones.put("7", new EntPed("7"));
 		Data.operaciones.put("8", new CambEst("8"));
 		
+		Data.operaciones.put("9", new NewDom("9"));
+		Data.operaciones.put("10", new NewProp("10"));
+		Data.operaciones.put("11", new NewAdmin("11"));
+
+		
 		//Cargar los datos
 		Data.CargarData();
 		
