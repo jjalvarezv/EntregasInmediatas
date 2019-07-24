@@ -47,6 +47,7 @@ public class Pedido {
 				 tiempo_mayor=  itemsProductos.get(x).getTiempo();
 			 }
 			}
+		this.tiempo_entrega= tiempo_mayor;
 		int tiempo_transporte= TIEMPO_TRANSPORTE;
 		String id= cedulaCliente;
 		int tamaño= Data.pedidos.size();
