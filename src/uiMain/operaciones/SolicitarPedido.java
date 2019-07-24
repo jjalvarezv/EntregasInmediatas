@@ -57,9 +57,13 @@ public class SolicitarPedido extends OpcionesMenu {
 				 a = leerOpcion.nextInt();	
 				indexProducto++;
 			}
-				miPedido.solicitarPedido(Long.toString(cliente.getCedula()), rest.getCodigo(), ((Cliente) cliente).getDireccion(), item); 
+			boolean auxPedidoSucces = miPedido.solicitarPedido(Long.toString(cliente.getCedula()), rest.getCodigo(), ((Cliente) cliente).getDireccion(), item); 
 		
-			
+			if(auxPedidoSucces) {
+				System.out.println("Tu pedido ha sido asignado \n" );
+				System.out.println("El domiciliario encargado es: " + miPedido.getUserDomiciliario());
+				System.out.println("\n Tu pedido tendrá un costo de : "+ miPedido.calcularCostoPedido());
+			}
 			
 		
 		
