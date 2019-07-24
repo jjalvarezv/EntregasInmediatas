@@ -82,8 +82,9 @@ public class Data {
     			else if(userObj instanceof PropietarioRestaurante) {
 					pwPro.println(line);
     			}
-    			else {
-    				pwCl.println(line);
+    			else if(userObj instanceof Cliente){
+    				Cliente cl = (Cliente)userObj;
+    				pwCl.println(userObj.getUsername()+";"+userObj.getPassword()+";"+userObj.getNom()+";"+userObj.getCedula()+";"+cl.getDireccion());
     			}
     		}
             pwCl.close();
@@ -92,7 +93,11 @@ public class Data {
             pwPro.close();
             
         } catch (IOException ioObj) {
+
         	System.out.print("Ocurrio algo al guardar en txt los datos    "+ioObj);
+
+        	
+
         }
 	}
 	
@@ -193,9 +198,12 @@ public class Data {
             PrintWriter writer = new PrintWriter(ruta+"clientes.txt"); writer.print(""); writer.close(); 
         }
 		catch(Exception e){
-			System.out.print("Error al cargar clientes\n");
+			System.out.print("Error al cargar clientes     "+e);
         }
 	}
+	
+	
+	
 	private static void CargarDomiciliarios(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"domiciliarios.txt");
