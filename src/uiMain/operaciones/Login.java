@@ -1,6 +1,7 @@
 package uiMain.operaciones;
 import java.util.Scanner;
 import gestorAplicacion.personas.UsuarioRegistrado;
+import uiMain.Main;
 import uiMain.OpcionesMenu;
 
 public class Login extends OpcionesMenu {
@@ -13,6 +14,7 @@ public class Login extends OpcionesMenu {
 		String pass = lectura.next();
 		
 		System.out.println(UsuarioRegistrado.login(userName, pass));
+		
 		lectura.close();
 	}
 	 public String toString() {

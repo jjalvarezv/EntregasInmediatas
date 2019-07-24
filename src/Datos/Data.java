@@ -143,6 +143,7 @@ public class Data {
             		String cc = user[3];
             		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
             		Data.admins.put(username,admin);
+            		Data.usuariosRegistrados.put(username, admin);
             	}
             }
             br.close();
@@ -167,6 +168,7 @@ public class Data {
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
             		Data.clientes.put(username,cliente);
+            		Data.usuariosRegistrados.put(username, cliente);
             	}
             }
             br.close();
@@ -189,6 +191,7 @@ public class Data {
             		String cc = user[3];
             		Domiciliario dom = new Domiciliario(username, password, name, Long.parseLong(cc));
             		Data.domiciliarios.put(username,dom);
+            		Data.usuariosRegistrados.put(username, dom);
             	}
             }
             br.close();
@@ -211,6 +214,7 @@ public class Data {
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
             		Data.propietarios.put(username,pr); 
+            		Data.usuariosRegistrados.put(username, pr);
             		}
             }
             br.close();

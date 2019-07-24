@@ -14,7 +14,7 @@ public class Main {
 		while(true) {
 			
 			try {
-				if(Main.user != null){
+				if(Main.user != null) {
 					Main.user.getMenu().lanzarMenu();
 				}else {
 					Main.menuGuestUser.lanzarMenu();
@@ -27,7 +27,7 @@ public class Main {
 				//Al terminar el programa ejecutara el guardado
 				Data.saveData();
 				
-				System.out.println("Adios");
+				System.out.println("Adios"+e.getMessage());
 				System.exit(0);
 			}
 		}
