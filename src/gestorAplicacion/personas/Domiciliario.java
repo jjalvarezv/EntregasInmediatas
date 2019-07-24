@@ -29,7 +29,7 @@ public class Domiciliario extends UsuarioRegistrado implements CalcularGanancias
 	
 	@Override
 	public int calcular_Ganancias() {
-		return (int) (Item.it.getTotal() * 0.45);
+		return (int) (Item.it.getTotal() * 0.10);
 	}
 
 	public void cambiarEstado(int nuevoEstado) {
