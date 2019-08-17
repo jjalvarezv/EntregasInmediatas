@@ -33,7 +33,7 @@ public class Data {
 	public static HashMap<String, Pedido> pedidos = new HashMap<String, Pedido>();
 	
 	//Guardar los datos para cerrar el proyecto
-	public static void saveData() {
+	public void saveData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
 		GuardarUsuarios(ruta);
@@ -42,7 +42,7 @@ public class Data {
 		GuardarPedidos(ruta);
 	}
 	
-	private static void GuardarPedidos(String ruta) {
+	private void GuardarPedidos(String ruta) {
 		try {
 			PrintWriter writer = new PrintWriter(ruta+"pedidos.txt"); 
 			for (Map.Entry<String, Pedido> entry:pedidos.entrySet()) {
@@ -58,7 +58,7 @@ public class Data {
 	
 	
 	//este metodo es para guardar los usuarios de cualquier tipo en el txt
-	private static void GuardarUsuarios(String ruta){
+	private void GuardarUsuarios(String ruta){
 		try {
             FileWriter fwCl = new FileWriter(ruta+"clientes.txt");
             FileWriter fwAd = new FileWriter(ruta+"admin.txt");
@@ -106,7 +106,7 @@ public class Data {
 	}
 	
 	//Este metodo guarda lo menus de cada usuario, muestra los numeros de cada opcion de menu separando todo con ;
-	private static void GuardarMenus(String ruta){
+	private void GuardarMenus(String ruta){
 		try {
             FileWriter fw = new FileWriter(ruta+"MenusDeUsuarios.txt");
             PrintWriter pw = new PrintWriter(fw);
@@ -128,7 +128,7 @@ public class Data {
 	}
 	
 	//Este metodo guarda los restaurantes en el txt restaurantes.txt
-	private static void GuardarRestaurantes(String ruta){
+	private void GuardarRestaurantes(String ruta){
 		try {
             FileWriter fw = new FileWriter(ruta+"restaurantes.txt");
             PrintWriter pw = new PrintWriter(fw);
@@ -145,7 +145,7 @@ public class Data {
         }
 	}
 	
-	public static void CargarData() {
+	public void CargarData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
 		CargarAdmin(ruta);
@@ -175,7 +175,7 @@ public class Data {
         	System.out.print("Error al leer");
         }
 	}
-	private static void CargarAdmin(String ruta) {
+	private void CargarAdmin(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"admin.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -202,7 +202,7 @@ public class Data {
             System.out.print("Error al cargar admins\n");
         }
 	}
-	private static void CargarClientes(String ruta) {
+	private void CargarClientes(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"clientes.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -232,7 +232,7 @@ public class Data {
 	
 	
 	
-	private static void CargarDomiciliarios(String ruta) {
+	private void CargarDomiciliarios(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"domiciliarios.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -259,7 +259,7 @@ public class Data {
         }
 	}
 	
-	private static void CargarPropetarioRestaurante(String ruta) {
+	private void CargarPropetarioRestaurante(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"propietarioRestaurante.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -285,7 +285,7 @@ public class Data {
         }
 	}
 	
-	private static void CargarRestaurantes(String ruta) {
+	private void CargarRestaurantes(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"restaurantes.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -310,7 +310,7 @@ public class Data {
         }
 	}
 	
-	private static void CargarProductos(String ruta) {
+	private void CargarProductos(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"productos.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -340,7 +340,7 @@ public class Data {
         }
 	}
 	
-	private static void createFilesAndDirs() {
+	private void createFilesAndDirs() {
 		try {
 		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
 		File directory = new File(ruta);

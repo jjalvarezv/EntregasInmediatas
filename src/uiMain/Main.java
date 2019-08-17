@@ -26,7 +26,9 @@ public class Main {
 				//Si ocurre una excepcion al ejecutar el programa, lo terminara.
 				
 				//Al terminar el programa ejecutara el guardado
-				Data.saveData();
+				// objData es un objeto para invocar a los metodos de Data.java
+				Data objData = new Data();
+				objData.saveData();
 				
 				System.out.println(" Suerte, te esperamos gg ");
 				System.exit(0);
@@ -62,7 +64,9 @@ public class Main {
 
 		
 		//Cargar los datos
-		Data.CargarData();
+		// objData es un objeto para invocar a los metodos de Data.java
+		Data objData = new Data();
+		objData.CargarData();
 		
 		
 		//Menu por defecto----Invitado
