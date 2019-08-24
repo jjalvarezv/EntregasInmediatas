@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import modelo.gestorAplicacion.gestion.Pedido;
 import modelo.gestorAplicacion.gestion.Producto;
 import modelo.gestorAplicacion.gestion.Restaurante;
@@ -35,9 +36,9 @@ public class Data {
 	//Guardar los datos para cerrar el proyecto
 	public void saveData() {
 		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		GuardarUsuarios(ruta);
-		GuardarMenus(ruta);
+		//GuardarMenus(ruta);
 		GuardarRestaurantes(ruta);
 		GuardarPedidos(ruta);
 	}
@@ -106,7 +107,7 @@ public class Data {
 	}
 	
 	//Este metodo guarda lo menus de cada usuario, muestra los numeros de cada opcion de menu separando todo con ;
-	private void GuardarMenus(String ruta){
+	/*private void GuardarMenus(String ruta){
 		try {
             FileWriter fw = new FileWriter(ruta+"MenusDeUsuarios.txt");
             PrintWriter pw = new PrintWriter(fw);
@@ -125,7 +126,7 @@ public class Data {
         } catch (IOException ioObj) {
         	System.out.print("Ocurrio algo al guardar en txt los datos");
         }
-	}
+	}*/
 	
 	//Este metodo guarda los restaurantes en el txt restaurantes.txt
 	private void GuardarRestaurantes(String ruta){
@@ -145,9 +146,10 @@ public class Data {
         }
 	}
 	
+	//cargar datos de el sistema
 	public void CargarData() {
 		createFilesAndDirs();
-		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		CargarAdmin(ruta);
 		CargarClientes(ruta);
 		CargarDomiciliarios(ruta);
@@ -156,6 +158,7 @@ public class Data {
 		CargarProductos(ruta);
 	}
 	
+	/*
 	private static void loadMenus(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"MenusDeUsuarios.txt");
@@ -175,6 +178,9 @@ public class Data {
         	System.out.print("Error al leer");
         }
 	}
+	*/
+	
+	//este metodo carga los administradores del txt
 	private void CargarAdmin(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"admin.txt");
@@ -188,8 +194,6 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		Admin admin = new Admin(username, password, name, Long.parseLong(cc));
-            		String [] operations = {"5","9","10","11"};
-        			//MenuConsola.newMenu(admin, operations);
             		Data.admins.put(username,admin);
             		Data.usuariosRegistrados.put(username, admin);
             	}
@@ -202,6 +206,8 @@ public class Data {
             System.out.print("Error al cargar admins\n");
         }
 	}
+	
+	//metodo para cargar clientes
 	private void CargarClientes(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"clientes.txt");
@@ -216,8 +222,6 @@ public class Data {
             		String cc = user[3];
             		String direccion = user[4];
             		Cliente cliente = new Cliente(username, password, name, Long.parseLong(cc),direccion);
-            		String [] operations = {"5","6", "12"};
-        			//MenuConsola.newMenu(cliente, operations);
             		Data.clientes.put(username,cliente);
             		Data.usuariosRegistrados.put(username, cliente);
             	}
@@ -230,8 +234,7 @@ public class Data {
         }
 	}
 	
-	
-	
+	//metodo que carga clientes
 	private void CargarDomiciliarios(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"domiciliarios.txt");
@@ -245,8 +248,6 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		Domiciliario dom = new Domiciliario(username, password, name, Long.parseLong(cc));
-            		String [] operations = {"5","7","8"};
-        			//MenuConsola.newMenu(dom, operations);
             		Data.domiciliarios.put(username,dom);
             		Data.usuariosRegistrados.put(username, dom);
             	}
@@ -259,6 +260,7 @@ public class Data {
         }
 	}
 	
+	//metodo que carga propietarios de Restaurante
 	private void CargarPropetarioRestaurante(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"propietarioRestaurante.txt");
@@ -272,19 +274,18 @@ public class Data {
             		String name = user[2];
             		String cc = user[3];
             		PropietarioRestaurante pr = new PropietarioRestaurante(username, password, name, Long.parseLong(cc));
-            		String [] operations = {"5","13","14"};
-        			//MenuConsola.newMenu(pr, operations);
             		Data.propietarios.put(username,pr); 
             		Data.usuariosRegistrados.put(username, pr);
             		}
             }
             br.close();
-           // PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
+            //PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
         }catch(Exception e){
 			System.out.print("Error al cargar Propietarios de Restaurante\n");
         }
 	}
 	
+	//metodo que carga los restaurantes
 	private void CargarRestaurantes(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"restaurantes.txt");
@@ -310,6 +311,7 @@ public class Data {
         }
 	}
 	
+	//metodo que carga Productos
 	private void CargarProductos(String ruta) {
 		try{
 			FileReader fr = new FileReader(ruta+"productos.txt");
@@ -327,7 +329,6 @@ public class Data {
             		String valor = rest[3];
             		String tiempo = rest[4];
             		Producto prod = new Producto(id,Integer.parseInt(codigoRestaurante),nombre, Integer.parseInt(valor) ,Integer.parseInt(tiempo));
-            		
             		Data.restaurantes.get(codigoRestaurante).agregarProducto(prod);
             	}
             }
@@ -342,7 +343,7 @@ public class Data {
 	
 	private void createFilesAndDirs() {
 		try {
-		String ruta = System.getProperty("user.dir")+"\\src\\textos\\";
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		File directory = new File(ruta);
 	    if (! directory.exists()){
 	        directory.mkdir();
@@ -350,11 +351,9 @@ public class Data {
 		File usuariosRegistradosFile = new File(ruta+"clientes.txt");
 		File usuariosAdminFile = new File(ruta+"admin.txt");
 		File usuariosMenus = new File(ruta+"MenusDeUsuarios.txt");
-		usuariosRegistradosFile.createNewFile();
-		usuariosAdminFile.createNewFile();
-		usuariosMenus.createNewFile();
+
 		}
-		catch(IOException e){
+		catch(Exception e){
 			//Ocurrio algo al crear las carpetas y los archivos
 		}
 	}
