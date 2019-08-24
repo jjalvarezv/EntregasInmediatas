@@ -12,9 +12,17 @@ public class ventanaInicio extends JPanel{
 	private JPanel P4;
 	private JPanel P5;
 	private JPanel P6;
-	private JLabel L1;
-	private JButton B1;
-	private JTextArea T1;
+	private JLabel labelBienvenida;
+	private JButton botonImagenes;
+	private JTextArea textoDescripcion;
+	private JButton botonAdmin;
+	private JButton botonUser;
+	private JLabel labelIngreso;
+	private JLabel labelUser;
+	private JLabel labelPass;
+	private JTextField usuario;
+	private JPasswordField password;
+	private JButton salir;
 	
 	public ventanaInicio() {
 		
@@ -26,15 +34,15 @@ public class ventanaInicio extends JPanel{
 		//--------codigo para editar el panel P1-----------
 		
 		P3 = new JPanel();
-		L1 = new JLabel("HOLA BIENVENIDO AL SISTEMA", SwingConstants.CENTER);
-		L1.setFont(new Font("Helvetica", Font.BOLD,22));
-		L1.addMouseListener(new moverRatonBienvenida());
-		P1.add(P3.add(L1)); //agrego mensaje de bienvenida
+		labelBienvenida = new JLabel("HOLA BIENVENIDO AL SISTEMA", SwingConstants.CENTER);
+		labelBienvenida.setFont(new Font("Helvetica", Font.BOLD,22));
+		labelBienvenida.addMouseListener(new moverRatonBienvenida());
+		P1.add(P3.add(labelBienvenida)); //agrego mensaje de bienvenida
 		
 		P4 = new JPanel();
-		B1 = new JButton(new ImageIcon("src/temp/mensajeFotos.jpg"));
-		B1.addActionListener(new botonRostros()); //FALTA IMPLEMENTAR PARA IMAGENES
-		P1.add(P4.add(B1));
+		botonImagenes = new JButton(new ImageIcon("src/temp/mensajeFotos.jpg"));
+		botonImagenes.addActionListener(new botonRostros()); //FALTA IMPLEMENTAR PARA IMAGENES
+		P1.add(P4.add(botonImagenes));
 		
 		add(P1);
 		
@@ -44,17 +52,58 @@ public class ventanaInicio extends JPanel{
 		P2.setLayout(new GridLayout(2,1,10,5));
 		
 		P5 = new JPanel();
-		T1 = new JTextArea("esto es una prueba, adefjaoshdfjah sdofhapsjdfhapjsdfahs dfohasodfhao psdhfouashdfoahsmas nos se como hacer la barra");
-		T1.setLineWrap(true);
-		T1.setWrapStyleWord(true);
-		T1.setEditable(false);
-		JScrollPane scroll = new JScrollPane(T1);
-		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);;
+		textoDescripcion = new JTextArea("esto es una prueba, adefjaoshdfjah sdofhapsjdfhapjsdfahs dfohasodfhao psdhfouashdfoahsmas nos se como hacer la barra");
+		textoDescripcion.setLineWrap(true);
+		textoDescripcion.setWrapStyleWord(true);
+		textoDescripcion.setEditable(false);
+		JScrollPane scroll = new JScrollPane(textoDescripcion);
+		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		P2.add(P5.add(scroll)); //agrego descripcion del proyecto
+		//agrego descripcion del proyecto
+		P2.add(P5.add(scroll)); 
 		
 		P6 = new JPanel();
+		P6.setLayout(new GridLayout(4,1));
+		JPanel botones = new JPanel();
+		botones.setLayout(new GridLayout(1,2,5,5));
+		botonAdmin = new JButton("ADMINISTRADOR");
+		botonUser = new JButton("USUARIO COMÚN");
+		botones.add(botonAdmin);
+		botones.add(botonUser);
+		P6.add(botones);
 		
+		
+		labelIngreso = new JLabel("Ingrese su Usuario y Contraseña", SwingConstants.CENTER);
+		labelIngreso.setFont(new Font("Helvetica", Font.BOLD,16));
+		labelIngreso.setVisible(true);
+		P6.add(labelIngreso);
+		
+		JPanel login = new JPanel();
+		login.setLayout(new GridLayout(2,2,5,5));
+		labelUser = new JLabel("Ingrese Usuario:", SwingConstants.CENTER);
+		labelUser.setFont(new Font("Helvetica", Font.BOLD,12));
+		labelUser.setVisible(true);
+		
+		labelPass = new JLabel("Ingrese Contraseña:", SwingConstants.CENTER);
+		labelPass.setFont(new Font("Helvetica", Font.BOLD,12));
+		labelPass.setVisible(true);
+		
+		usuario = new JTextField("us");
+		usuario.setVisible(true);
+		password = new JPasswordField("pass");
+		password.setVisible(true);
+		
+		login.add(labelUser);
+		login.add(usuario);
+		login.add(labelPass);
+		login.add(password);
+		P6.add(login);
+		
+		salir = new JButton("Salir del Sistema");
+		P6.add(salir);
+		
+		P2.add(P6);
+
 		
 		
 		add(P2);
@@ -63,19 +112,19 @@ public class ventanaInicio extends JPanel{
 	
 	public class moverRatonBienvenida implements MouseListener{
 		public void mouseEntered(MouseEvent e) {
-			L1.setForeground(Color.blue);
+			labelBienvenida.setForeground(Color.blue);
 		}
 		public void mouseExited(MouseEvent e) {
-			L1.setForeground(Color.black);
+			labelBienvenida.setForeground(Color.black);
 		}
 		public void mousePressed(MouseEvent e) {
-			L1.setForeground(Color.blue);
+			labelBienvenida.setForeground(Color.blue);
 		}
 		public void mouseReleased(MouseEvent e) {
 			
 		}
 		public void mouseClicked(MouseEvent e) {
-			L1.setForeground(Color.blue);
+			labelBienvenida.setForeground(Color.blue);
 		}
 	}
 	
