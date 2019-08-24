@@ -17,13 +17,14 @@ public class ventanaApp extends JFrame{
 		
 		//agrega Barra de menu a la ventana
 		setJMenuBar(barraDeMenu);
-				
+		
 		contenedorVentana = this.getContentPane();
-		contenedorVentana.setLayout(new GridLayout(1,2,10,5));
+		//contenedorVentana.setLayout(new GridLayout(1,2,10,5));
 		//agregar componentes con contenedor.add(claseDeLaVista a agregar)
 		contenedorVentana.add(new ventanaInicio());
 		
-		this.setPreferredSize(new Dimension(700, 500));
+		
+		this.setPreferredSize(new Dimension(800, 550));
 		
 	}
 	
