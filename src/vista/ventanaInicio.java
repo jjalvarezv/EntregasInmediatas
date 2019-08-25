@@ -1,29 +1,32 @@
 package vista;
 
 import controlador.*;
+import controlador.controlesInicio.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class ventanaInicio extends JPanel{
 
-	private JPanel P1;
-	private JPanel P2;
-	private JPanel P3;
-	private JPanel P4;
-	private JPanel P5;
-	private JPanel P6;
-	private JLabel labelBienvenida;
-	private JButton botonImagenes;
-	private JTextArea textoDescripcion;
-	private JButton botonAdmin;
-	private JButton botonUser;
-	private JLabel labelIngreso;
-	private JLabel labelUser;
-	private JLabel labelPass;
-	private JTextField usuario;
-	private JPasswordField password;
-	private JButton salir;
+	public static JPanel P1;
+	public static JPanel P2;
+	public static JPanel P3;
+	public static JPanel P4;
+	public static JPanel P5;
+	public static JPanel P6;
+	public static JLabel labelBienvenida;
+	public static JButton botonImagenes;
+	public static JTextArea textoDescripcion;
+	public static JLabel labelIngreso;
+	public static JButton botonAdmin;
+	public static JButton botonUser;
+	public static JButton salir;
+	public static JPanel Panellogin;
+	public static JLabel labelUser;
+	public static JLabel labelPass;
+	public JTextField usuario;
+	public JPasswordField password;
+	public static JButton login;
 	
 	public ventanaInicio() {
 		
@@ -64,7 +67,7 @@ public class ventanaInicio extends JPanel{
 		P2.add(P5.add(scroll)); 
 		
 		P6 = new JPanel();
-		P6.setLayout(new GridLayout(4,1));
+		P6.setLayout(new GridLayout(5,1));
 		JPanel botones = new JPanel();
 		botones.setLayout(new GridLayout(1,2,5,5));
 		botonAdmin = new JButton("ADMINISTRADOR");
@@ -79,8 +82,8 @@ public class ventanaInicio extends JPanel{
 		labelIngreso.setVisible(true);
 		P6.add(labelIngreso);
 		
-		JPanel login = new JPanel();
-		login.setLayout(new GridLayout(2,2,5,5));
+		Panellogin = new JPanel();
+		Panellogin.setLayout(new GridLayout(2,2,5,5));
 		labelUser = new JLabel("Ingrese Usuario:", SwingConstants.CENTER);
 		labelUser.setFont(new Font("Helvetica", Font.BOLD,12));
 		labelUser.setVisible(true);
@@ -89,17 +92,22 @@ public class ventanaInicio extends JPanel{
 		labelPass.setFont(new Font("Helvetica", Font.BOLD,12));
 		labelPass.setVisible(true);
 		
-		usuario = new JTextField("us");
+		usuario = new JTextField("");
 		usuario.setVisible(true);
-		password = new JPasswordField("pass");
+		password = new JPasswordField("");
 		password.setVisible(true);
+		login = new JButton("Login");
+		login.addActionListener(new login());
 		
-		login.add(labelUser);
-		login.add(usuario);
-		login.add(labelPass);
-		login.add(password);
+		Panellogin.add(labelUser);
+		Panellogin.add(usuario);
+		Panellogin.add(labelPass);
+		Panellogin.add(password);
+		
+		P6.add(Panellogin);
 		P6.add(login);
 		
+		//boton de salir del sistema
 		salir = new JButton("Salir del Sistema");
 		salir.addActionListener(new controlSalida());
 		P6.add(salir);
@@ -110,30 +118,6 @@ public class ventanaInicio extends JPanel{
 		
 		add(P2);
 		
-	}
-	
-	public class moverRatonBienvenida implements MouseListener{
-		public void mouseEntered(MouseEvent e) {
-			labelBienvenida.setForeground(Color.blue);
-		}
-		public void mouseExited(MouseEvent e) {
-			labelBienvenida.setForeground(Color.black);
-		}
-		public void mousePressed(MouseEvent e) {
-			labelBienvenida.setForeground(Color.blue);
-		}
-		public void mouseReleased(MouseEvent e) {
-			
-		}
-		public void mouseClicked(MouseEvent e) {
-			labelBienvenida.setForeground(Color.blue);
-		}
-	}
-	
-	public class botonRostros implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			
-		}
 	}
 	
 }

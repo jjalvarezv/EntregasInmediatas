@@ -279,7 +279,7 @@ public class Data {
             		}
             }
             br.close();
-            //PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
+            PrintWriter writer = new PrintWriter(ruta+"propietarioRestaurante.txt"); writer.print(""); writer.close(); 
         }catch(Exception e){
 			System.out.print("Error al cargar Propietarios de Restaurante\n");
         }

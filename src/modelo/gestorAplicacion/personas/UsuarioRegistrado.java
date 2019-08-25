@@ -27,7 +27,7 @@ public abstract class UsuarioRegistrado {
 		UsuarioRegistrado us = Data.usuariosRegistrados.get(username);
 		if (us != null) {
 			if(us.getPassword().equals(pass)) {
-				//Main.user = us;
+				System.out.print("Correcto");
 				return "Bienvenido " + username;
 			}
 			else {
