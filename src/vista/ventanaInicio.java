@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -100,6 +101,7 @@ public class ventanaInicio extends JPanel{
 		P6.add(login);
 		
 		salir = new JButton("Salir del Sistema");
+		salir.addActionListener(new controlSalida());
 		P6.add(salir);
 		
 		P2.add(P6);

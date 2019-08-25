@@ -38,11 +38,11 @@ public class Data {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		GuardarUsuarios(ruta);
-		//GuardarMenus(ruta);
 		GuardarRestaurantes(ruta);
 		GuardarPedidos(ruta);
 	}
 	
+	//Guarda los pedidos hechos
 	private void GuardarPedidos(String ruta) {
 		try {
 			PrintWriter writer = new PrintWriter(ruta+"pedidos.txt"); 
