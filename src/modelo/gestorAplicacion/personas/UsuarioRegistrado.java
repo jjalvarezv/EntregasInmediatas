@@ -23,19 +23,20 @@ public abstract class UsuarioRegistrado {
 	
 	public abstract void logout();
 	
-	public static String login(String username, String pass) {
+	public static boolean login(String username, String pass) {
 		UsuarioRegistrado us = Data.usuariosRegistrados.get(username);
 		if (us != null) {
 			if(us.getPassword().equals(pass)) {
-				System.out.print("Correcto");
-				return "Bienvenido " + username;
+				
+				return true;
 			}
 			else {
-				return "Contraseña invalida";
+				return false;
+				
 			}
 		}
 		else {
-			return "Usuario no encontrado";
+			return false;
 		}
 	}
 
@@ -134,4 +135,22 @@ public abstract class UsuarioRegistrado {
 			return "No ha sido creado";
 		}
 	}
+	
+	//Este metodo retorna el tipo de usuario que se esta loggeando
+	public static String TipoUser(String user) {
+
+		UsuarioRegistrado u =Data.usuariosRegistrados.get(user);
+		if (u instanceof Cliente == true) {
+			return "cliente";
+		}else if(u instanceof Admin == true) {
+			return "admin";
+		}else if(u instanceof PropietarioRestaurante == true) {
+			return "propietario";
+		}else if(u instanceof Domiciliario == true) {
+			return "domiciliario";
+		}else {
+			return "no";
+		}
+	}
+	
 }

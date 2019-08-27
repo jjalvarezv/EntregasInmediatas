@@ -17,8 +17,8 @@ import uiMain.OpcionesMenu;
 
 public class Data {
 	public static HashMap<String, UsuarioRegistrado> usuariosRegistrados = new HashMap<String, UsuarioRegistrado>();
-	public static HashMap<String, OpcionesMenu> operaciones = new HashMap<String, OpcionesMenu>();
-	public static HashMap<String, MenuConsola> menus = new HashMap<String, MenuConsola>();
+	//public static HashMap<String, OpcionesMenu> operaciones = new HashMap<String, OpcionesMenu>();
+	//public static HashMap<String, MenuConsola> menus = new HashMap<String, MenuConsola>();
 	public static HashMap<String, Cliente> clientes = new HashMap<String, Cliente>();
 	public static HashMap<String, PropietarioRestaurante> propietarios = new HashMap<String, PropietarioRestaurante>();
 	public static HashMap<String, Restaurante> restaurantes = new HashMap<String, Restaurante>();
