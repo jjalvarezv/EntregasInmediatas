@@ -14,6 +14,7 @@ public class login implements ActionListener {
 	private String tipo;
 	private String usuario;
 	private String password;
+	public UsuarioRegistrado userSession;
 	
 	public void actionPerformed(ActionEvent e) {
 		ventanaInicio panel =(ventanaInicio) ventanaApp.contenedorVentana.getComponent(0);
@@ -26,6 +27,7 @@ public class login implements ActionListener {
 			new errorLogin();
 		}else if (opc == true) {
 			tipo = UsuarioRegistrado.TipoUser(usuario);
+			userSession = UsuarioRegistrado.getUserByUsername(usuario);
 			ventanaApp.barraDeMenu.removeAll();
 			//Agrego el nuevo menu para el UsuarioRegistrado
 			JMenu archivo = new JMenu("Archivo");
@@ -34,7 +36,7 @@ public class login implements ActionListener {
 			archivo.add(user);
 			archivo.add(logout);
 			ventanaApp.barraDeMenu.add(archivo);
-			//user.addActionListener(new infoUser());
+			user.addActionListener(new infoUser());
 			logout.addActionListener(new logout());
 			
 			
@@ -62,14 +64,17 @@ public class login implements ActionListener {
 			//configuro el contenedor
 			ventanaApp.contenedorVentana.removeAll();
 			if (tipo.equals("cliente") == true) {
-				ventanaApp.contenedorVentana.add(new ventanaCliente());
+				ventanaApp.contenedorVentana.add(new ventanaCliente()); //Vista de un usuario cliente
 				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("admin") == true) {
-				
+				ventanaApp.contenedorVentana.add(new ventanaAdmin()); //Vista de un usuario Administrador
+				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("domiciliario") == true) {
-				
+				ventanaApp.contenedorVentana.add(new ventanaDomiciliario()); // Vista de un usuario Domiciliario
+				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("propietario") == true) {
-				
+				ventanaApp.contenedorVentana.add(new ventanaPropietario()); //vista de un usuario Propietario de restaurante
+				ventanaApp.ventanaAplicacion.pack();
 			}else {
 				System.out.print("bla");
 			}
