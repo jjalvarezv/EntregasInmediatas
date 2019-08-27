@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import vista.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import controlador.*;
 
 import modelo.gestorAplicacion.personas.UsuarioRegistrado;
+import java.awt.*;
+import java.awt.event.*;
 
 public class login implements ActionListener {
 	private String tipo;
@@ -27,15 +30,17 @@ public class login implements ActionListener {
 			//Agrego el nuevo menu para el UsuarioRegistrado
 			JMenu archivo = new JMenu("Archivo");
 			JMenuItem user = new JMenuItem("Usuario");
-			JMenuItem logout = new JMenuItem("Salir");
+			JMenuItem logout = new JMenuItem("Salir");		
 			archivo.add(user);
 			archivo.add(logout);
 			ventanaApp.barraDeMenu.add(archivo);
 			//user.addActionListener(new infoUser());
-			//logout.addActionListener(new logout());
+			logout.addActionListener(new logout());
+			
+			
+			
 			JMenu opcionesUser = new JMenu("Procesos y Consultas");
 			//Las opciones de usuarios se agregan en el if, depende de el tipo de user
-						
 			if (tipo.equals("cliente") == true) {
 				
 			}else if(tipo.equals("admin") == true) {
@@ -46,9 +51,11 @@ public class login implements ActionListener {
 				
 			}else {
 				System.out.print("bla");
-			}
-			
+			}	
 			ventanaApp.barraDeMenu.add(opcionesUser);
+			
+			
+			
 			JMenuItem jelp = new JMenuItem("Ayuda");
 			ventanaApp.barraDeMenu.add(jelp);
 			
@@ -56,6 +63,7 @@ public class login implements ActionListener {
 			ventanaApp.contenedorVentana.removeAll();
 			if (tipo.equals("cliente") == true) {
 				ventanaApp.contenedorVentana.add(new ventanaCliente());
+				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("admin") == true) {
 				
 			}else if(tipo.equals("domiciliario") == true) {
