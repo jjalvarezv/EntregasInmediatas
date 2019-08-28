@@ -99,13 +99,13 @@ public class login implements ActionListener {
 				ventanaApp.contenedorVentana.add(new ventanaCliente(usuario)); //Vista de un usuario cliente
 				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("admin") == true) {
-				ventanaApp.contenedorVentana.add(new ventanaAdmin()); //Vista de un usuario Administrador
+				ventanaApp.contenedorVentana.add(new ventanaAdmin(usuario)); //Vista de un usuario Administrador
 				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("domiciliario") == true) {
-				ventanaApp.contenedorVentana.add(new ventanaDomiciliario()); // Vista de un usuario Domiciliario
+				ventanaApp.contenedorVentana.add(new ventanaDomiciliario(usuario)); // Vista de un usuario Domiciliario
 				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("propietario") == true) {
-				ventanaApp.contenedorVentana.add(new ventanaPropietario()); //vista de un usuario Propietario de restaurante
+				ventanaApp.contenedorVentana.add(new ventanaPropietario(usuario)); //vista de un usuario Propietario de restaurante
 				ventanaApp.ventanaAplicacion.pack();
 			}else {
 				System.out.print("bla");
