@@ -78,28 +78,27 @@ public class ventanaInicio extends JPanel{
 		botonUser = new JButton("USUARIO COMÚN");
 		botones.add(botonAdmin);
 		botones.add(botonUser);
+		botonAdmin.addActionListener(new btnAdmin());
+		botonUser.addActionListener(new btnUser());
 		P6.add(botones);
 		
 		
 		labelIngreso = new JLabel("Ingrese su Usuario y Contraseña", SwingConstants.CENTER);
 		labelIngreso.setFont(new Font("Helvetica", Font.BOLD,16));
-		labelIngreso.setVisible(true);
+		labelIngreso.setVisible(false);
 		P6.add(labelIngreso);
+		
 		
 		Panellogin = new JPanel();
 		Panellogin.setLayout(new GridLayout(2,2,5,5));
 		labelUser = new JLabel("Ingrese Usuario:", SwingConstants.CENTER);
 		labelUser.setFont(new Font("Helvetica", Font.BOLD,12));
-		labelUser.setVisible(true);
 		
 		labelPass = new JLabel("Ingrese Contraseña:", SwingConstants.CENTER);
 		labelPass.setFont(new Font("Helvetica", Font.BOLD,12));
-		labelPass.setVisible(true);
 		
 		usuario = new JTextField("");
-		usuario.setVisible(true);
 		password = new JPasswordField("");
-		password.setVisible(true);
 		login = new JButton("Login");
 		login.addActionListener(new login());
 		
@@ -107,9 +106,11 @@ public class ventanaInicio extends JPanel{
 		Panellogin.add(usuario);
 		Panellogin.add(labelPass);
 		Panellogin.add(password);
-		
+		Panellogin.setVisible(false);
 		P6.add(Panellogin);
+		login.setVisible(false);
 		P6.add(login);
+		
 		
 		//boton de salir del sistema
 		salir = new JButton("Salir del Sistema");
