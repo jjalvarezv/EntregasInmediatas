@@ -1,6 +1,6 @@
 package modelo.operaciones;
 //import uiMain.Main;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 import modelo.gestorAplicacion.personas.*;
 
 import java.util.Scanner;

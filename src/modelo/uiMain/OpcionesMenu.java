@@ -1,6 +1,6 @@
-package uiMain;
+package modelo.uiMain;
 import java.util.Map;
-import Datos.Data;
+import modelo.Datos.Data;
 
 public abstract class OpcionesMenu {
 	
@@ -27,11 +27,10 @@ public abstract class OpcionesMenu {
 	
 	public static void seeAllOperations() {
 		int i = 1;
-		for (Map.Entry<String, OpcionesMenu> opcionDeMenu : Data.operaciones.entrySet()) {
-			System.out.println(i + " "+opcionDeMenu.getValue());
-			i++;
+		//for (Map.Entry<String, OpcionesMenu> opcionDeMenu : Data.operaciones.entrySet()) {
+			//System.out.println(i + " "+opcionDeMenu.getValue());
+			//i++;
 		}
 	}
-}
 
 

@@ -1,6 +1,6 @@
 package modelo.gestorAplicacion.personas;
-//import uiMain.Main;
-import uiMain.MenuConsola;
+
+
 import modelo.Datos.Data;
 import modelo.gestorAplicacion.personas.UsuarioRegistrado;
 
@@ -9,7 +9,7 @@ public abstract class UsuarioRegistrado {
 	private String pass;
 	private String nombre;
 	private Long cedula;
-	private MenuConsola menu;
+	//private MenuConsola menu;
 	//public String rol;-----DUDA----
 	
 	public UsuarioRegistrado() {}
@@ -67,15 +67,7 @@ public abstract class UsuarioRegistrado {
 	public void setPassword(String password) {
 		this.pass = password;
 	}
-	
-	public MenuConsola getMenu() {
-		return menu;
-	}
 
-	public void setMenu(MenuConsola menu) {
-		this.menu = menu;
-	}
-	
 	public void setCedula(Long cc) {
 		this.cedula = cc;
 	}
@@ -85,7 +77,7 @@ public abstract class UsuarioRegistrado {
 	}
 	
 	public static String newCliente(String username, String password, String name, Long cc, String direccion){
-		Cliente user = new Cliente();// ya si la puedo hace ggg....NO PUEDO HACER ESTA MIERDDDAAAAAAAAAAAAAAAAAAA
+		Cliente user = new Cliente();
 		//Validaciones de cada parametro
 		user.setNom(name);
 		user.setUsername(username);

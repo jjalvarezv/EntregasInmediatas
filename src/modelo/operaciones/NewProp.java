@@ -2,7 +2,7 @@ package modelo.operaciones;
 import java.util.Scanner;
 
 import modelo.gestorAplicacion.personas.UsuarioRegistrado;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 
 public class NewProp extends OpcionesMenu {
 	public NewProp(String key) {

@@ -3,7 +3,7 @@ import java.util.Scanner;
 import modelo.gestorAplicacion.personas.*;
 
 //import uiMain.Main;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 
 public class CambEst extends OpcionesMenu {
 	public CambEst(String key) {

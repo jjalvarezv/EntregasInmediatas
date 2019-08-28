@@ -7,7 +7,7 @@ import java.util.HashMap;
 import modelo.Datos.Data;
 import modelo.gestorAplicacion.gestion.Pedido;
 import modelo.gestorAplicacion.personas.*;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 
 public class EntPed extends OpcionesMenu {
 	

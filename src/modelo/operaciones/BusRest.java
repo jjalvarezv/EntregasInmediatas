@@ -1,5 +1,5 @@
 package modelo.operaciones;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 import java.util.*;
 
 import modelo.Datos.Data;

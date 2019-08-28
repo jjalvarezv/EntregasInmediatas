@@ -3,7 +3,7 @@ package modelo.operaciones;
 import java.util.Scanner;
 
 import modelo.gestorAplicacion.personas.UsuarioRegistrado;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 
 public class AddOpt extends OpcionesMenu{
 	
@@ -20,7 +20,7 @@ public class AddOpt extends OpcionesMenu{
 		OpcionesMenu.seeAllOperations();
 		System.out.print("Ingrese el numero de la funcionalidad a añadir: ");
 		String opt = leer.next();
-		user.getMenu().añadirOpcion(opt);
+		//user.getMenu().añadirOpcion(opt);
 	}
 
 	@Override

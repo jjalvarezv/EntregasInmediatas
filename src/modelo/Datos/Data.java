@@ -12,8 +12,7 @@ import modelo.gestorAplicacion.gestion.Restaurante;
 import modelo.gestorAplicacion.personas.*;
 import modelo.gestorAplicacion.personas.Admin;
 import modelo.gestorAplicacion.personas.UsuarioRegistrado;
-import uiMain.MenuConsola;
-import uiMain.OpcionesMenu;
+
 
 public class Data {
 	public static HashMap<String, UsuarioRegistrado> usuariosRegistrados = new HashMap<String, UsuarioRegistrado>();

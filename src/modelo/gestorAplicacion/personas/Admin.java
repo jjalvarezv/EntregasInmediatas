@@ -5,7 +5,7 @@ import java.util.*;
 import modelo.Datos.Data;
 import modelo.gestorAplicacion.gestion.Item;
 import modelo.gestorAplicacion.personas.Admin;
-import uiMain.MenuConsola;
+
 
 public class Admin extends UsuarioRegistrado  implements CalcularGanancias{
 	

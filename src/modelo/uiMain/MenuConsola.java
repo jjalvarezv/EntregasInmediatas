@@ -1,10 +1,10 @@
- package uiMain;
+ package modelo.uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Datos.Data;
-import gestorAplicacion.personas.UsuarioRegistrado;
+import modelo.Datos.Data;
+import modelo.gestorAplicacion.personas.UsuarioRegistrado;
 
 public class MenuConsola {
 	private UsuarioRegistrado user;
@@ -65,7 +65,7 @@ public class MenuConsola {
 		
 	}
 	
-	public static void newMenu(UsuarioRegistrado user, String [] operations) {
+	/*public static void newMenu(UsuarioRegistrado user, String [] operations) {
 		ArrayList<OpcionesMenu> operationsMenu = new ArrayList<OpcionesMenu>();
 		for (String opt : operations) {
 			operationsMenu.add(Data.operaciones.get(opt));
@@ -74,7 +74,7 @@ public class MenuConsola {
 		user.setMenu(menu);
 		Data.menus.put(user.getUsername(), menu);
 	}
-	
+	*/
 	public void seeOpt() {
 		int i = 1;
 		for (OpcionesMenu opcionDeMenu : options) {
@@ -87,7 +87,7 @@ public class MenuConsola {
 		options.remove(index-1);
 	}
 	
-	public void añadirOpcion(String opt) {
-		options.add(Data.operaciones.get(opt));
-	}
+	//public void añadirOpcion(String opt) {
+		//options.add(Data.operaciones.get(opt));
+	//}
 }

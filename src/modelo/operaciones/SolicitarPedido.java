@@ -1,6 +1,6 @@
 package modelo.operaciones;
 //import uiMain.Main;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 
 import java.util.ArrayList;
 import java.util.Scanner;

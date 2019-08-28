@@ -1,6 +1,6 @@
 package modelo.operaciones;
 
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 //import uiMain.Main;
 
 public class SignOut extends OpcionesMenu{

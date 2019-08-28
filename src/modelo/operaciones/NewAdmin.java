@@ -1,7 +1,7 @@
 package modelo.operaciones;
 
 import java.util.Scanner;
-import uiMain.OpcionesMenu;
+import modelo.uiMain.OpcionesMenu;
 import modelo.gestorAplicacion.personas.Admin;
 
 public class NewAdmin extends OpcionesMenu{
