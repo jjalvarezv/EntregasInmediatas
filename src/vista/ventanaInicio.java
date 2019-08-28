@@ -62,7 +62,7 @@ public class ventanaInicio extends JPanel{
 				"");
 		textoDescripcion.setLineWrap(true);
 		textoDescripcion.setWrapStyleWord(true);
-		textoDescripcion.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textoDescripcion.setFont(new Font("Arial", Font.PLAIN, 16));
 		textoDescripcion.setEditable(false);
 		JScrollPane scroll = new JScrollPane(textoDescripcion);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
