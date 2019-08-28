@@ -28,6 +28,7 @@ public class ventanaInicio extends JPanel{
 	public JPasswordField password;
 	public static JButton login;
 	
+	
 	public ventanaInicio() {
 		
 		this.setLayout(new GridLayout(1,2,10,5));
@@ -71,13 +72,13 @@ public class ventanaInicio extends JPanel{
 		JPanel botones = new JPanel();
 		botones.setLayout(new GridLayout(1,2,5,5));
 		botonAdmin = new JButton("ADMINISTRADOR");
-		botonUser = new JButton("USUARIO COMÚN");
+		botonUser = new JButton("USUARIO COMÃšN");
 		botones.add(botonAdmin);
 		botones.add(botonUser);
 		P6.add(botones);
 		
 		
-		labelIngreso = new JLabel("Ingrese su Usuario y Contraseña", SwingConstants.CENTER);
+		labelIngreso = new JLabel("Ingrese su Usuario y ContraseÃ±a", SwingConstants.CENTER);
 		labelIngreso.setFont(new Font("Helvetica", Font.BOLD,16));
 		labelIngreso.setVisible(true);
 		P6.add(labelIngreso);
@@ -88,7 +89,7 @@ public class ventanaInicio extends JPanel{
 		labelUser.setFont(new Font("Helvetica", Font.BOLD,12));
 		labelUser.setVisible(true);
 		
-		labelPass = new JLabel("Ingrese Contraseña:", SwingConstants.CENTER);
+		labelPass = new JLabel("Ingrese ContraseÃ±a:", SwingConstants.CENTER);
 		labelPass.setFont(new Font("Helvetica", Font.BOLD,12));
 		labelPass.setVisible(true);
 		

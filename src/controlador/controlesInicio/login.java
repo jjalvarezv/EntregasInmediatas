@@ -45,11 +45,43 @@ public class login implements ActionListener {
 			//Las opciones de usuarios se agregan en el if, depende de el tipo de user
 			if (tipo.equals("cliente") == true) {
 				
+				JMenuItem hacerPedido = new JMenuItem("Solicitar Pedido");
+				JMenuItem buscarRestaurante = new JMenuItem("Buscar Restaurante");
+				JMenuItem listaDePedidos = new JMenuItem(" Mis pedidos");
+				opcionesUser.add(hacerPedido);
+				opcionesUser.add(buscarRestaurante);
+				opcionesUser.add(listaDePedidos);
+				hacerPedido.addActionListener(null);
+				buscarRestaurante.addActionListener(null);
+				listaDePedidos.addActionListener(null);
+				ventanaApp.barraDeMenu.add(opcionesUser);
+				
 			}else if(tipo.equals("admin") == true) {
+				JMenuItem agregarPropietario = new JMenuItem("Agregar Propietario");
+				JMenuItem agregarAdmin = new JMenuItem("Agregar Admin");				
+				opcionesUser.add(agregarPropietario);
+				opcionesUser.add(agregarAdmin);			
+				agregarPropietario.addActionListener(null);
+				agregarAdmin.addActionListener(null);				
+				ventanaApp.barraDeMenu.add(opcionesUser);
 				
 			}else if(tipo.equals("domiciliario") == true) {
+				JMenuItem entregarPedido = new JMenuItem("Entregar Pedido");
+				JMenuItem cambiarEstado = new JMenuItem("Cambiar Estado");				
+				opcionesUser.add(entregarPedido);
+				opcionesUser.add(cambiarEstado);			
+				entregarPedido.addActionListener(null);
+				cambiarEstado.addActionListener(null);				
+				ventanaApp.barraDeMenu.add(opcionesUser);
 				
 			}else if(tipo.equals("propietario") == true) {
+				JMenuItem agregarProducto = new JMenuItem("Agregar Producto");
+				JMenuItem removerProducto = new JMenuItem("Remover Producto");				
+				opcionesUser.add(agregarProducto);
+				opcionesUser.add(removerProducto);			
+				agregarProducto.addActionListener(null);
+				removerProducto.addActionListener(null);				
+				ventanaApp.barraDeMenu.add(opcionesUser);
 				
 			}else {
 				System.out.print("bla");
