@@ -27,7 +27,6 @@ public abstract class UsuarioRegistrado {
 		UsuarioRegistrado us = Data.usuariosRegistrados.get(username);
 		if (us != null) {
 			if(us.getPassword().equals(pass)) {
-				
 				return true;
 			}
 			else {
@@ -152,5 +151,6 @@ public abstract class UsuarioRegistrado {
 			return "no";
 		}
 	}
+	
 	
 }
