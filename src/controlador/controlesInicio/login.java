@@ -51,7 +51,7 @@ public class login implements ActionListener {
 				opcionesUser.add(hacerPedido);
 				opcionesUser.add(buscarRestaurante);
 				opcionesUser.add(listaDePedidos);
-				hacerPedido.addActionListener(null);
+				hacerPedido.addActionListener(new hacerPedido(usuario));
 				buscarRestaurante.addActionListener(null);
 				listaDePedidos.addActionListener(null);
 				ventanaApp.barraDeMenu.add(opcionesUser);
@@ -95,8 +95,8 @@ public class login implements ActionListener {
 			
 			//configuro el contenedor
 			ventanaApp.contenedorVentana.removeAll();
-			if (tipo.equals("cliente") == true) {
-				ventanaApp.contenedorVentana.add(new ventanaCliente()); //Vista de un usuario cliente
+			if (tipo.equals("cliente") == true) {			
+				ventanaApp.contenedorVentana.add(new ventanaCliente(usuario)); //Vista de un usuario cliente
 				ventanaApp.ventanaAplicacion.pack();
 			}else if(tipo.equals("admin") == true) {
 				ventanaApp.contenedorVentana.add(new ventanaAdmin()); //Vista de un usuario Administrador
