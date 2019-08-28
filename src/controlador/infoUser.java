@@ -3,18 +3,23 @@ package controlador;
 import javax.swing.*;
 
 import controlador.controlesInicio.*;
+import modelo.Datos.Data;
 import modelo.gestorAplicacion.personas.*;
 
 import java.awt.*;
 import java.awt.event.*;
 
 public class infoUser implements ActionListener{
-
+	private UsuarioRegistrado usuarioActual; 
+	public infoUser(String user) {
+		this.usuarioActual = Data.usuariosRegistrados.get(user);
+	}
+	public infoUser() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		login lg = new login();
-		UsuarioRegistrado usuarioActual = lg.userSession;
 		long cc;
 		String nombre; 
 		String dir;
@@ -34,8 +39,7 @@ public class infoUser implements ActionListener{
 			cod = ((PropietarioRestaurante) usuarioActual).getCodigo();
 			nombre = ((PropietarioRestaurante) usuarioActual).getNom();
 			cc = ((PropietarioRestaurante) usuarioActual).getCedula();
-			JOptionPane.showMessageDialog(null,"Nombre: "+nombre+"\nCedula: "+cc+
-					"\nCodigo de Restaurante: "+cod
+			JOptionPane.showMessageDialog(null,"Nombre: "+nombre+"\nCedula: "+cc+"\nCodigo de Restaurante: "+cod
 					,"Información de Propietario", JOptionPane.INFORMATION_MESSAGE);
 			
 		}else if(usuarioActual instanceof Domiciliario) {
@@ -59,8 +63,14 @@ public class infoUser implements ActionListener{
 			cc = ((Admin)usuarioActual).getCedula();
 			JOptionPane.showMessageDialog(null,"Nombre: "+nombre+"\nCedula: "+cc
 					,"Información de Administrador", JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			JOptionPane.showMessageDialog(null,"Asco");
 		}
 		
+		
+		
+		//JptionPane.showMessageDialog(null,"Nombre: "+nombre+"\nCedula: "+cc
+			//	,"Información de Administrador", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }

@@ -11,12 +11,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class login implements ActionListener {
-	private String tipo;
-	private String usuario;
-	private String password;
-	public UsuarioRegistrado userSession;
 	
 	public void actionPerformed(ActionEvent e) {
+		String tipo;
+		String usuario;
+		String password;
+		
 		ventanaInicio panel =(ventanaInicio) ventanaApp.contenedorVentana.getComponent(0);
 		usuario = panel.usuario.getText();
 		password = panel.password.getText();
@@ -27,16 +27,16 @@ public class login implements ActionListener {
 			new errorLogin();
 		}else if (opc == true) {
 			tipo = UsuarioRegistrado.TipoUser(usuario);
-			userSession = UsuarioRegistrado.getUserByUsername(usuario);
+			//userSession = UsuarioRegistrado.getUserByUsername(usuario);
 			ventanaApp.barraDeMenu.removeAll();
 			//Agrego el nuevo menu para el UsuarioRegistrado
 			JMenu archivo = new JMenu("Archivo");
 			JMenuItem user = new JMenuItem("Usuario");
-			JMenuItem logout = new JMenuItem("Salir");		
+			JMenuItem logout = new JMenuItem("Salir");
 			archivo.add(user);
 			archivo.add(logout);
 			ventanaApp.barraDeMenu.add(archivo);
-			user.addActionListener(new infoUser());
+			user.addActionListener(new infoUser(usuario));
 			logout.addActionListener(new logout());
 			
 			
@@ -117,5 +117,6 @@ public class login implements ActionListener {
 		System.out.println(password);
 		
 	}
+	
 
 }
