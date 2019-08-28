@@ -5,4 +5,4 @@
 01;2;Palitos de queso;3000;10
 02;2;Palitos de guayaba;2500;12
 03;2;Palitos de arequipe;2700;14
-04;2;Palitos de carne;3300;15
+04;2;Palitos de carne;3300;16
