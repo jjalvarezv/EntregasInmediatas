@@ -28,7 +28,7 @@ public class ventanaSolicitarPedido extends JPanel{
 		}
 	
 		this.setLayout(new BorderLayout());
-		add(new JLabel("HOLAAAAA "+usuario), BorderLayout.NORTH);
+		add(new JLabel("BIENVENIDA "+usuario), BorderLayout.NORTH);
 		panelAux = new JPanel();
 		panelAux.setLayout(new GridLayout(1,2,10,5));
 		

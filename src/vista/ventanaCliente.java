@@ -15,9 +15,9 @@ public class ventanaCliente extends JPanel{
 		
 		
 		this.setLayout(new BorderLayout());
-		add(new JLabel("HOLAAAAA "+usuario), BorderLayout.NORTH);
-		add(new JLabel("mierasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddda"), BorderLayout.WEST);
-		add(new JLabel("mierda2"), BorderLayout.EAST);
+		add(new JLabel("BIENVENIDO "+usuario), BorderLayout.NORTH);
+		add(new JLabel(""), BorderLayout.WEST);
+		add(new JLabel(""), BorderLayout.EAST);
 		
 	}
 }
